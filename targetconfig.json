@@ -1,0 +1,14 @@
+{
+    "packages": {
+        "approvedOrgs": [
+            "Microsoft",
+            "LabAixBidouille",
+            "LabAixBidouille-STM32"
+        ],
+        "approvedRepos": [
+        ]
+    },
+    "languages": [
+        "fr"
+    ]
+}
