@@ -49,7 +49,7 @@
     },
     "compile": {
         "isNative": true,
-        "useUF2": false,
+        "useUF2": true,
         "webUSB": false,
         "hasHex": true,
         "deployDrives": ".*",
