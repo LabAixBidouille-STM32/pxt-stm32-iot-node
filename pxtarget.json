@@ -8,6 +8,7 @@
     "corepkg": "stm32-iot-node",
     "bundleddirs": [
         "libs/base",
+        "libs/buttons",
         "libs/core",
         "libs/stm32-iot-node"
     ],
