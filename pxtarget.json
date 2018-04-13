@@ -117,11 +117,13 @@
         "betaUrl": "https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node/",
         "boardName": "STM32L4 Discovery kit IoT node",
         "driveDisplayName": "DIS_L4IOT",
-        "homeScreenHero": "./static/hero.jpg",
-        "invertedMenu": false,
-        "invertedToolbox": false,
+        "showHomeScreen": true,
+        "homeScreenHero": "./static/hero.png",
+        "invertedMenu": true,
+        "invertedToolbox": true,
         "invertedMonaco": true,
         "monacoToolbox": true,
+        "selectLanguage": true,
         "highContrast": true,
         "simAnimationEnter": "roll in",
         "simAnimationExit": "roll out",
@@ -133,9 +135,30 @@
             "hashtags": "MakeCode"
         },
         "allowPackageExtensions": true,
-        "hideNewProjectButton": true,
         "extendEditor": true,
-        "crowdinProject": "kindscript"
+        "crowdinProject": "kindscript",
+        "blocklyOptions": {
+            "grid": {
+                "spacing": 20,
+                "length": 2,
+                "colour": "rgba(189, 195, 199, 0.20)",
+                "snap": true
+            }
+        },
+        "blocklyColors": {
+            "insertionMarker": "#FFFFFF",
+            "insertionMarkerOpacity": 0.5
+        },
+        "blockColors": {
+            "loops": "#40bf4a",
+            "logic": "#4cbfe6",
+            "math": "#9966ff",
+            "variables": "#FF6680",
+            "text": "#ffab19",
+            "advanced": "#00272B",
+            "functions": "#005a9e",
+            "arrays": "#8A1C7C"
+        }
     },
 
     "ignoreDocsErrors": true
