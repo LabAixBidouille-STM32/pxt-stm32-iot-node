@@ -7,12 +7,15 @@
 #include "MbedPin.h"
 #include "MultiButton.h"
 
-#define DEV_NUM_PINS 64
+#define PAGE_SIZE 4096
 
-// pins marked with AIN and PTC in the data sheet
-#define DEV_ANALOG_PINS 0x3ff00000ffcULL
+#define DEV_NUM_PINS 32
 
-#define PAGE_SIZE 256
+#define DEV_PWM_PINS 0x0000ffffffffULL // all pins are PWM pins it seems
+#define DEV_AIN_PINS 0x0000f000001fULL
+
+// Codal doesn't yet distinguish between PWM and AIN
+#define DEV_ANALOG_PINS (DEV_PWM_PINS | DEV_AIN_PINS)
 
 // #define PlatformDMAC 
 

@@ -12,7 +12,8 @@
     ],
     "dependencies": {
         "base": "file:../base",
-        "core": "file:../core"
+        "core": "file:../core",
+        "buttons": "file:../buttons"
     },
     "public": true
 }
