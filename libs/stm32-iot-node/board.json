@@ -4,25 +4,25 @@
         "outlineImage": "pkg://boardwireframe.svg",
         "width": 175,
         "height": 170,
-        "pinDist": 6.25,
+        "pinDist": 5,
         "pinBlocks": [{
-                "x": 47,
-                "y": 21,
+                "x": 55.7,
+                "y": 43,
                 "labels": ["SCL", "SDA", " ", "GND0", "~D13", "~D12", "~D11", "~D10", "~D9", "~D8"]
             },
             {
-                "x": 113,
-                "y": 21,
+                "x": 109.5,
+                "y": 43,
                 "labels": ["D7", "~D6", "~D5", "~D4", "~D3", "D2", "TX/D1", "RX/D0"]
             },
             {
-                "x": 70,
-                "y": 142,
+                "x": 73.7,
+                "y": 137.5,
                 "labels": [" ", " ", "RESET", "3.3V", "V-USB", "GND1", "GND2", "VIN"]
             },
             {
-                "x": 126,
-                "y": 142,
+                "x": 119.3,
+                "y": 137.5,
                 "labels": ["A0", "A1", "A2", "A3", "A4", "A5"]
             }
         ],
