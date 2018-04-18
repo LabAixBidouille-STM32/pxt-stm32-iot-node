@@ -16,4 +16,8 @@ void platform_init() {
     initRandomSeed();
 }
 
+void cpu_clock_init() {
+    // missing in Codal
+}
+
 }
