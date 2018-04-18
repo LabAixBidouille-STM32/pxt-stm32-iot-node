@@ -1,4 +1,4 @@
-# MakeCode STM32 Discovery IoT Node [![Build Status](https://travis-ci.org/LabAixBidouille-STM32/pxt-stm32l4.svg?branch=master)](https://travis-ci.org/LabAixBidouille-STM32/pxt-stm32l4)
+# MakeCode STM32 Discovery IoT Node [![Build Status](https://travis-ci.org/LabAixBidouille-STM32/pxt-stm32-iot-node.svg?branch=master)](https://travis-ci.org/LabAixBidouille-STM32/pxt-stm32-iot-node)
 
 This is an experimental code editor for STM32L475 DISCOVERY IOT NODE boards - try it at https://makecode.labaixbidouille.com.
 
