@@ -1,0 +1,19 @@
+{
+    "name": "stm32-iot-node",
+    "description": "The  STM32L4 Discovery kit IoT node library",
+    "files": [
+        "board.json",
+        "board.svg",
+        "boardwireframe.svg",
+        "config.ts",
+        "device.d.ts",
+        "ns.ts",
+        "README.md"
+    ],
+    "dependencies": {
+        "base": "file:../base",
+        "core": "file:../core",
+        "buttons": "file:../buttons"
+    },
+    "public": true
+}
