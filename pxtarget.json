@@ -120,6 +120,28 @@
         "driveDisplayName": "DIS_L4IOT",
         "showHomeScreen": true,
         "homeScreenHero": "./static/hero.png",
+        "docMenu": [
+            {
+                "name": "About",
+                "path": "/about"
+            },
+            {
+                "name": "Blocks",
+                "path": "/blocks"
+            },
+            {
+                "name": "JavaScript",
+                "path": "/javascript"
+            },
+            {
+                "name": "Reference",
+                "path": "/reference"
+            },
+            {
+                "name": "GitHub",
+                "path": "https://github.com/Microsoft/pxt-stm32-iot-node"
+            }
+        ],
         "invertedMenu": true,
         "invertedToolbox": true,
         "invertedMonaco": true,
@@ -162,5 +184,5 @@
         }
     },
 
-    "ignoreDocsErrors": true
+    "ignoreDocsErrors": false
 }
