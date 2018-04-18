@@ -45,7 +45,7 @@
 		"pxt-core": "3.8.11"
 	},
 	"scripts": {
-		"start":"node node_modules/pxt-core/built/pxt.js serve --cloud --nolazy --no-browser -h \"0.0.0.0\" -w 3233 -p 3232",
+		"start":"node node_modules/pxt-core/built/pxt.js serve --cloud --no-browser -h \"0.0.0.0\" -w 3233 -p 3232",
 		"test": "node node_modules/pxt-core/built/pxt.js travis"
 	}
 }
