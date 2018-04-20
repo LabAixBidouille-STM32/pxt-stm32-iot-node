@@ -5,8 +5,8 @@ node_js:
 before_install:
         - "docker build --rm --build-arg GIT_COMMIT=$LASTEST_TAG -t pxt-container-stm32-iot-node:latest https://github.com/LabAixBidouille-STM32/pxt-container-stm32-iot-node.git" 
 script:
-        - "docker run --rm $DOCKER_USERNAME/pxt-container-stm32-iot-node pxt buildtarget"
-        - "docker run --rm $DOCKER_USERNAME/pxt-container-stm32-iot-node pxt testdir tests"
+        - "docker run --rm pxt-container-stm32-iot-node:latest pxt buildtarget"
+        - "docker run --rm pxt-container-stm32-iot-node:latest pxt testdir tests"
 sudo: false
 notifications:
   email:
