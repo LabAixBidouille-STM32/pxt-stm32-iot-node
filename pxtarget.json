@@ -37,7 +37,7 @@
         "partsAspectRatio": 0.69,
         "instructions": true,
         "dynamicBoardDefinition": true,
-        "enableTrace": true
+        "debugger": true
     },
     "cloud": {
         "workspace": false,
@@ -148,8 +148,8 @@
         "monacoToolbox": true,
         "selectLanguage": true,
         "highContrast": true,
-        "simAnimationEnter": "roll in",
-        "simAnimationExit": "roll out",
+        "simAnimationEnter": "fly right in",
+        "simAnimationExit": "fly right out",
         "hasAudio": true,
         "disableBlockIcons": true,
         "socialOptions": {
@@ -183,6 +183,5 @@
             "arrays": "#8A1C7C"
         }
     },
-
-    "ignoreDocsErrors": false
+    "ignoreDocsErrors": true
 }
