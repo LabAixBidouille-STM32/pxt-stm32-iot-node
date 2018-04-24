@@ -2,6 +2,7 @@
 	"name": "pxt-stm32-iot-node",
 	"version": "0.0.6",
 	"description": "ST IoT-Node for Microsoft MakeCode",
+	"public": true,
 	"keywords": [
 		"JavaScript",
 		"education",
@@ -41,8 +42,8 @@
 		"@types/node": "8.0.53"
 	},
 	"dependencies": {
-		"pxt-common-packages": "0.20.41",
-		"pxt-core": "3.8.11"
+		"pxt-common-packages": "0.21.8",
+		"pxt-core": "3.12.1"
 	},
 	"scripts": {
 		"start": "node node_modules/pxt-core/built/pxt.js serve --cloud --no-browser -h \"0.0.0.0\" -w 3233 -p 3232",
