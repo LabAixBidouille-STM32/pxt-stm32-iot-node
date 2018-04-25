@@ -1,14 +1,16 @@
 language: node_js
 node_js:
          - "8.9.4"
+
+before_install:
+        - "docker build --rm --build-arg GIT_COMMIT=$TRAVIS_COMMIT -t pxt-container-stm32-iot-node:latest https://github.com/LabAixBidouille-STM32/pxt-container-stm32-iot-node.git" 
 script:
-        - "node node_modules/pxt-core/built/pxt.js travis"  
-        - "node node_modules/pxt-core/built/pxt.js testdir tests"
+        - "docker run --rm pxt-container-stm32-iot-node:latest pxt buildtarget"
+        - "docker run --rm pxt-container-stm32-iot-node:latest pxt testdir tests"
 sudo: false
 notifications:
-   email:
-        - kindscript@labaixbidouille.com
-cache:
-   directories:
-        - node_modules
-        - built/cache
+  email:
+    recipients:
+      - pxt@labaixbidouille.com
+    on_success: never
+    on_failure: always

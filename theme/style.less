@@ -1,6 +1,7 @@
 /* Import all components */
-@import 'semantic';
+@import 'pxtsemantic';
 @import 'pxt';
+@import 'blockly-toolbox';
 @import 'themes/default/globals/site.variables';
 @import 'themes/pxt/globals/site.variables';
 @import 'site/globals/site.variables';
@@ -10,6 +11,15 @@
 
 /* Reference import */
 @import (reference) "semantic.less";
+
+@font-face  {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'),
+         data-uri('../docs/static/fonts/Open_Sans/OpenSans-Regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         data-uri('../docs/static/fonts/Open_Sans/OpenSans-Regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 /*******************************
     Add your custom CSS here
@@ -35,92 +45,32 @@
     &:extend(.ui.blue.button all);
 }
 
-.simtoolbar .ui.button, .collapse-button.ui.button {
-    &:extend(.ui.grey.button all);
+.restart-button, .play-button, .collapse-button, .mute-button:not(.red), .debug-button:not(.orange), .trace-button:not(.orange), .fullscreen-button  {
+    background-color: #cfcfcf !important;
 }
 
 /* Editor menu toggle */
-.ui.menu .item.editor-menuitem .ui.grid {
+#menubar .ui.menu.fixed .item.editor-menuitem .ui.grid {
     background: fade(@black, 20%) !important;
+    border: 3px solid rgba(233, 236, 239, 0.2);
 }
 
 .sandboxfooter a:not(.thin) {
     color:white !important;
 }
 
-/* Home screen */
-.ui.home.projectsdialog {
-    .tabsegment  {
-        padding-top: 0 !important;
-    }
-    .ui.inverted.menu {
-        background: #104D66;
-        background: linear-gradient(to bottom, #104D66, #D3FFFB);
-    }
-    .getting-started-segment {
-        margin-top: 3rem !important;
-        background-position: 50% 75%;
-        background-color: #D3FFFB; /*#7DFFF8;*/
-        background-size: contain;
-    }
-}
-
-/* import dialog button */
-.ui.button.import-dialog-btn {
-    &:extend(.ui.inverted.button all);
-}
-
-/* Tutorial hint dialog */
-.ui.modal.hintdialog {
-    background: #1d6434;
-    border: solid 25px #6f4324;
-    border-radius: 0px;
-    .header, .content, .actions {
-        background: transparent;
-        padding-left: 120px;
-    }
-    .segment {
-        background: transparent;
-    }
-}
-.ui.modal.hintdialog:before {
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
-    border: 2px solid #7A512E;
-}
-.ui.modal.hintdialog:after {
-    content: " ";
-    position: absolute;
-    z-index: 1;
-    top: -6px;
-    left: -20px;
-    right: -6px;
-    bottom: -6px;
-    width: 130px;
-    background-repeat: no-repeat;
-}
-
-/* PXT Json */
-#pxtJsonEditor {
-    .ui.header {
-        color: @invertedTextColor;
-    }
+/* Scrollbars */
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
 }
 
 /* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {
     #filelist {
         background: transparent;
-    }
-    .ui.home.projectsdialog {
-        .getting-started-segment {
-            background-size: cover;
-        }
     }
 }
 

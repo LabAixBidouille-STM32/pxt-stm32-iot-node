@@ -10,7 +10,8 @@
         "libs/base",
         "libs/buttons",
         "libs/core",
-        "libs/stm32-iot-node"
+        "libs/stm32-iot-node",
+        "libs/tests"
     ],
 
     "serial": {
@@ -37,7 +38,7 @@
         "partsAspectRatio": 0.69,
         "instructions": true,
         "dynamicBoardDefinition": true,
-        "enableTrace": true
+        "debugger": true
     },
     "cloud": {
         "workspace": false,
@@ -83,7 +84,7 @@
         "codalTarget": {
             "name": "codal-stm32-iot-node",
             "url": "https://github.com/LabAixBidouille-STM32/codal-stm32-iot-node",
-            "branch": "master",
+            "branch": "v0.0.9",
             "type": "git"
         },
         "codalBinary": "STM32_IOT_NODE",
@@ -148,8 +149,8 @@
         "monacoToolbox": true,
         "selectLanguage": true,
         "highContrast": true,
-        "simAnimationEnter": "roll in",
-        "simAnimationExit": "roll out",
+        "simAnimationEnter": "fly right in",
+        "simAnimationExit": "fly right out",
         "hasAudio": true,
         "disableBlockIcons": true,
         "socialOptions": {
@@ -183,6 +184,5 @@
             "arrays": "#8A1C7C"
         }
     },
-
-    "ignoreDocsErrors": false
+    "ignoreDocsErrors": true
 }

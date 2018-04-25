@@ -1,8 +1,3 @@
 /*******************************
          Site Overrides
 *******************************/
-
-/* Fix semantic ui issue with hover over scriptsearch search box */
-.ui.search .action:hover {
-    background: @background !important;
-}
