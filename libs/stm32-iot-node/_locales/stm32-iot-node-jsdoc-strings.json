@@ -1,4 +1,4 @@
 {
   "input": "Respond to and read data from buttons and sensors.\n\nEvents and data from sensors.",
-  "input.buttonP02": "Button connecting BUTTONA to GND."
+  "input.btn_A": "Button connecting BUTTON_USER to GND."
 }

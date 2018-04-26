@@ -1,5 +1,5 @@
 {
-  "input.buttonP02|block": "button BUTTONA",
+  "input.btn_A|block": "button BUTTON_USER",
   "input|block": "input",
   "{id:category}Config": "Config",
   "{id:category}Input": "Input",
