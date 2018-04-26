@@ -77,7 +77,7 @@
     },
     "groundPins": ["GND1", "GND0", "GND2"],
     "threeVoltPins": ["3.3V"],
-    "onboardComponents": [],
+    "onboardComponents": ["accelerometer"],
     "marginWhenBreadboarding": [
         0,
         0,
