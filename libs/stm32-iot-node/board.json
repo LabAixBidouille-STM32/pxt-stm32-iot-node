@@ -35,7 +35,7 @@
             "label": "LED"
         }],
         "buttons":[{
-            
+
         }]
     },
     "gpioPinBlocks": [
@@ -65,6 +65,15 @@
         "D11": "~D11",
         "D12": "~D12",
         "D13": "~D13"
+    },
+    "spiPins": {
+        "MOSI": "MOSI",
+        "MISO": "MISO",
+        "SCK": "SCK"
+    },
+    "i2cPins": {
+        "SDA": "SDA",
+        "SCL": "SCL"
     },
     "groundPins": ["GND1", "GND0", "GND2"],
     "threeVoltPins": ["3.3V"],
