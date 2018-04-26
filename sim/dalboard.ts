@@ -61,8 +61,8 @@ namespace pxsim {
                         if (id != null) {
                             if (pinList.indexOf(id) < 0) {
                                 pinList.push(id)
-                                if ((DAL.PA02 <= id && id <= DAL.PA11) ||
-                                    (DAL.PB00 <= id && id <= DAL.PB09))
+                                if ((DAL.PA_2 <= id && id <= DAL.PA_11) ||
+                                    (DAL.PB_0 <= id && id <= DAL.PB_9))
                                     servos[sublbl] = id;
                             }
                             pinIds[lbl] = id;
@@ -86,8 +86,7 @@ namespace pxsim {
 
             this.neopixelPin = new Pin(
                 getConfig(DAL.CFG_PIN_NEOPIXEL) ||
-                getConfig(DAL.CFG_PIN_DOTSTAR_DATA) ||
-                DAL.PA30
+                getConfig(DAL.CFG_PIN_DOTSTAR_DATA)
             );
             // todo fix this
             this.pixelPin = this.neopixelPin;
@@ -195,7 +194,7 @@ namespace pxsim {
 
         getDefaultPitchPin() {
             // amp always on PA02, regardless which name is has
-            return pxtcore.getPin(DAL.PA02);
+            return pxtcore.getPin(DAL.PA_2);
         }
 
         defaultNeopixelPin() {

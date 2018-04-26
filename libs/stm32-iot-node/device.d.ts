@@ -23,30 +23,30 @@ declare namespace pins {
     //% fixedInstance shim=pxt::getPin(PIN_D4)
     const D4: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_D5)
-    const D5: DigitalPin;
+    const D5: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_D6)
-    const D6: DigitalPin;
+    const D6: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_D7)
-    const D7: DigitalPin;
+    const D7: PwmPin;
 
     //% fixedInstance shim=pxt::getPin(PIN_D8)
     const D8: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_D9)
     const D9: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_D10)
-    const D10: DigitalPin;
+    const D10: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_D11)
-    const D11: DigitalPin;
+    const D11: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_D12)
-    const D12: DigitalPin;
+    const D12: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_D13)
-    const D13: DigitalPin;
-    //% fixedInstance shim=pxt::getPin(PIN_D13)
-    const LED: DigitalPin;
+    const D13: PwmPin;
+    //% fixedInstance shim=pxt::getPin(PIN_LED)
+    const LED: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_RX)
     const RX: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_TX)
-    const TX: DigitalPin;
+    const TX: PwmPin;
     //% fixedInstance shim=pxt::getPin(PIN_MISO)
     const MISO: DigitalPin;
     //% fixedInstance shim=pxt::getPin(PIN_MOSI)
@@ -57,20 +57,14 @@ declare namespace pins {
     const SCL: DigitalPin;
     //% fixedInstance shim=pxt::getPin(PIN_SDA)
     const SDA: DigitalPin;
-
-    // TODO only checked the following two for Metro M0
-    //% fixedInstance shim=pxt::getPin(PIN_RXLED)
-    const RXLED: DigitalPin;
-    //% fixedInstance shim=pxt::getPin(PIN_TX)
-    const TXLED: DigitalPin;
 }
 
 
 declare namespace input {
     /**
-     * Button connecting BUTTONA to GND.
+     * Button connecting BUTTON_USER to GND.
      */
-    //% block="button BUTTONA" fixedInstance
-    //% shim=pxt::getButtonByPin(PIN_BUTTONA,BUTTON_ACTIVE_LOW_PULL_UP)
-    const buttonP02: Button;
+    //% block="button BUTTON_USER" fixedInstance
+    //% shim=pxt::getButton(0)
+    const btn_A: Button;
 }
