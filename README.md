@@ -2,6 +2,9 @@
 
 This is an experimental code editor for STM32L475 DISCOVERY IOT NODE boards - try it at https://makecode.labaixbidouille.com.
 
+CI build: https://ci2.dot.net/job/Private/job/pxt_project_gold/job/master/
+Hosted at: 9eae6845-f5a0-40fb-908f-ed0da288590c.pxt.io
+
 ## How is this for?
 
 This editor is meant for code on STM32L475 DISCOVERY IOT NODE. The editor is based on [Microsoft MakeCode](https://makecode.com).
