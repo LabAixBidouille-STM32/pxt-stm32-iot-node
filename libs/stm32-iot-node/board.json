@@ -27,20 +27,15 @@
             }
         ],
         "leds": [{
-            "x": 75.5,
-            "y": 178.5,
-            "color": "#FFA44A",
+            "x": 372.6,
+            "y": 98.1,
+            "h": 7,
+            "w": 17,
+            "color": "#FF1E1E",
             "label": "LED"
-        }, {
-            "x": 75.5,
-            "y": 155,
-            "color": "#FFA44A",
-            "label": "RXLED"
-        }, {
-            "x": 75.5,
-            "y": 167,
-            "color": "#FFA44A",
-            "label": "TXLED"
+        }],
+        "buttons":[{
+
         }]
     },
     "gpioPinBlocks": [
@@ -71,9 +66,18 @@
         "D12": "~D12",
         "D13": "~D13"
     },
+    "spiPins": {
+        "MOSI": "MOSI",
+        "MISO": "MISO",
+        "SCK": "SCK"
+    },
+    "i2cPins": {
+        "SDA": "SDA",
+        "SCL": "SCL"
+    },
     "groundPins": ["GND1", "GND0", "GND2"],
     "threeVoltPins": ["3.3V"],
-    "onboardComponents": [],
+    "onboardComponents": ["accelerometer"],
     "marginWhenBreadboarding": [
         0,
         0,

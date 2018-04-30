@@ -159,7 +159,7 @@ namespace pxsim.visuals {
 
     class BoardLed {
         private element: SVGElement;
-        private colorOff = "#aaa"
+        private colorOff = "#ddd"
 
         constructor(x: number, y: number, private colorOn: string, private pin: Pin, w: number, h: number) {
             this.element = svg.elt("rect", { x, y, width: w, height: h, fill: this.colorOff });
