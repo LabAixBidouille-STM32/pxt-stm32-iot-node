@@ -1,6 +1,9 @@
-# MakeCode target for STM32 Discovery IoT Node [![Build Status](https://travis-ci.org/LabAixBidouille-STM32/pxt-stm32-iot-node.svg?branch=master)](https://travis-ci.org/LabAixBidouille-STM32/pxt-stm32-iot-node)
+# MakeCode target for STM32 Discovery IoT Node
 
 This is an experimental code editor for STM32L475 DISCOVERY IOT NODE boards - try it at https://makecode.labaixbidouille.com.
+
+* build at https://ci2.dot.net/job/Private/job/pxt_project_gold/job/master/
+* test location: https://9eae6845-f5a0-40fb-908f-ed0da288590c.pxt.io
 
 ## How is this for?
 
