@@ -102,6 +102,7 @@
     },
     "appTheme": {
         "accentColor": "#0089BF",
+        "defaultLocale": "fr",
         "logoUrl": "https://makecode.labaixbidouille.com",
         "logo": "./static/logo.svg",
         "docsLogo": "./static/logo.svg",
@@ -115,9 +116,9 @@
         "embedUrl": "https://makecode.labaixbidouille.com",
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
-        "githubUrl": "https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node/",
-        "feedbackUrl": "https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node/issues",
-        "betaUrl": "https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node/",
+        "githubUrl": "https://github.com/Microsoft/pxt-stm32-iot-node",
+        "feedbackUrl": "https://github.com/Microsoft/pxt-stm32-iot-node/issues",
+        "betaUrl": "https://github.com/Microsoft/pxt-stm32-iot-node/",
         "boardName": "STM32L4 Discovery kit IoT node",
         "driveDisplayName": "DIS_L4IOT",
         "showHomeScreen": true,
@@ -148,7 +149,6 @@
         "invertedToolbox": true,
         "invertedMonaco": true,
         "monacoToolbox": true,
-        "selectLanguage": true,
         "highContrast": true,
         "simAnimationEnter": "fly right in",
         "simAnimationExit": "fly right out",
@@ -183,7 +183,13 @@
             "advanced": "#00272B",
             "functions": "#005a9e",
             "arrays": "#8A1C7C"
-        }
+        },
+        "selectLanguage": true,
+                
+        "availableLocales": [
+            "en",
+            "fr"
+        ]
     },
     "ignoreDocsErrors": true
 }
