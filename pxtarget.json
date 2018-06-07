@@ -125,8 +125,8 @@
         "homeScreenHero": "./static/hero.png",
         "docMenu": [
             {
-                "name": "About",
-                "path": "/about"
+                "name": "Support",
+                "path": "https://community.st.com/stm32"
             },
             {
                 "name": "Blocks",
@@ -141,8 +141,8 @@
                 "path": "/reference"
             },
             {
-                "name": "GitHub",
-                "path": "https://github.com/Microsoft/pxt-stm32-iot-node"
+                "name": "Buy",
+                "path": "https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/b-l475e-iot01a.html"
             }
         ],
         "invertedMenu": true,
