@@ -11,6 +11,7 @@
         "libs/base",
         "libs/buttons",
         "libs/core",
+        "libs/servo",
         "libs/stm32-iot-node",
         "libs/tests"
     ],
@@ -85,7 +86,7 @@
         "codalTarget": {
             "name": "codal-stm32-iot-node",
             "url": "https://github.com/LabAixBidouille-STM32/codal-stm32-iot-node",
-            "branch": "v0.0.9",
+            "branch": "v0.0.12",
             "type": "git"
         },
         "codalBinary": "STM32_IOT_NODE",
@@ -97,7 +98,7 @@
             }
         },
         "githubCorePackage": "lancaster-university/codal",
-        "gittag": "v0.3.0",
+        "gittag": "v0.4.0",
         "serviceId": "codal2stm32iot"
     },
     "appTheme": {
