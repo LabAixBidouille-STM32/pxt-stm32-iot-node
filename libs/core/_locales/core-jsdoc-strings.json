@@ -5,7 +5,7 @@
   "DigitalPin.digitalRead": "Read a pin or connector as either 0 or 1",
   "DigitalPin.digitalWrite": "Set a pin or connector value to either 0 or 1.",
   "DigitalPin.digitalWrite|param|value": "value to set on the pin",
-  "DigitalPin.onPulsed": "Make this pin a digital input, and create events where the timestamp is the duration\nthat this pin was either ``high`` or ``low``.",
+  "DigitalPin.onEvent": "Register code to run when a pin event occurs.",
   "DigitalPin.pulseIn": "Return the duration of a pulse in microseconds",
   "DigitalPin.pulseIn|param|value": "the value of the pulse (default high)",
   "DigitalPin.setPull": "Set the pull direction of this pin.",
@@ -14,7 +14,7 @@
   "PwmOnlyPin.servoSetPulse": "Set the pin for PWM analog output, make the period be 20 ms, and set the pulse width.\nThe pulse width is based on the value it is given **microseconds** or `1/1000` milliseconds.",
   "PwmOnlyPin.servoSetPulse|param|duration": "pulse duration in micro seconds, eg:1500",
   "PwmOnlyPin.servoWrite": "Write a value to the servo to control the rotation of the shaft. On a standard servo, this will\nset the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous\nrotation servo, this will set the speed of the servo (with ``0`` being full-speed in one\ndirection, ``180`` being full speed in the other, and a value near ``90`` being no movement).",
-  "PwmOnlyPin.servoWrite|param|value": "angle or rotation speed, eg:180,90,0",
+  "PwmOnlyPin.servoWrite|param|value": "angle or rotation speed",
   "control": "Program controls and events.",
   "control.Timer": "A timer",
   "control.Timer.millis": "Gets the elapsed time in millis since the last reset",
@@ -42,5 +42,12 @@
   "pins.i2cWriteBuffer": "Write bytes to a 7-bit I2C `address`.",
   "pins.i2cWriteNumber": "Write one number to an I2C address.",
   "pins.pulseDuration": "Get the duration of the last pulse in microseconds. This function should be called from a\n``onPulsed`` handler.",
-  "pins.sizeOf": "Get the size in bytes of specified number format."
+  "pins.sizeOf": "Get the size in bytes of specified number format.",
+  "pins.spiFrequency": "Sets the SPI frequency",
+  "pins.spiFrequency|param|frequency": "the clock frequency, eg: 1000000",
+  "pins.spiMode": "Sets the SPI mode and bits",
+  "pins.spiMode|param|mode": "the mode, eg: 3",
+  "pins.spiTransfer": "Writes a given command to SPI bus, and afterwards reads the response.",
+  "pins.spiWrite": "Write to the SPI slave and return the response",
+  "pins.spiWrite|param|value": "Data to be sent to the SPI slave"
 }
