@@ -6,10 +6,11 @@
 #include "MbedI2C.h"
 #include "MbedPin.h"
 #include "MultiButton.h"
+#include "STM32IotNodePin.h"
+#include "STM32IotNodeSPI.h"
+#define PAGE_SIZE 1024
 
-#define PAGE_SIZE 4096
-
-#define DEV_NUM_PINS 32
+#define DEV_NUM_PINS 100
 
 #define DEV_PWM_PINS 0x0000ffffffffULL // all pins are PWM pins it seems
 #define DEV_AIN_PINS 0x0000f000001fULL
@@ -20,7 +21,10 @@
 // #define PlatformDMAC 
 
 #define CODAL_MBED codal::_mbed
+#define CODAL_SPI STM32IotNodeSPI
+#define CODAL_PIN STM32IotNodePin
 
+#define IMAGE_BITS 4
 /*
  * @param nominalValue The value (in SI units) of a nominal position.
  * @param nominalReading The raw reading from the sensor at the nominal position.
@@ -127,9 +131,6 @@
 #define PE_11 75
 #define PE_12 76
 #define PE_13 77
-#define PE_14 78
-#define PE_15 79
-
 #define PE_14 78
 #define PE_15 79
 
