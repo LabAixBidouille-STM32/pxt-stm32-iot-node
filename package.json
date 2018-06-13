@@ -1,52 +1,52 @@
 {
-	"name": "pxt-stm32-iot-node",
-	"version": "0.0.17",
-	"description": "ST IoT-Node for Microsoft MakeCode",
-	"public": true,
-	"keywords": [
-		"JavaScript",
-		"education",
-		"pxt",
-		"MakeCode",
-		"Microsoft"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node.git"
-	},
-	"author": "",
-	"license": "MIT",
-	"homepage": "https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node.git#readme",
-	"files": [
-		"README.md",
-		"pxtarget.json",
-		"built/*.js",
-		"built/*.json",
-		"built/*.d.ts",
-		"sim/public",
-		"docs/*.md",
-		"docs/*/*.md",
-		"docs/*/*/*.md"
-	],
-	"main": "built/pxtrequire.js",
-	"typings": "built/pxtrequire.d.ts",
-	"devDependencies": {
-		"typescript": "2.6.1",
-		"rtlcss": "^2.1.2",
-		"autoprefixer": "^6.7.6",
-		"less": "2.7.3",
-		"semantic-ui-less": "2.2.14",
-		"@types/bluebird": "2.0.33",
-		"@types/jquery": "3.2.16",
-		"@types/marked": "0.3.0",
-		"@types/node": "8.0.53"
-	},
-	"dependencies": {
-		"pxt-common-packages": "0.23.27",
-		"pxt-core": "3.19.1"
-	},
-	"scripts": {
-		"start": "node node_modules/pxt-core/built/pxt.js serve --cloud --no-browser -h \"0.0.0.0\" -w 3233 -p 3232",
-		"test": "node node_modules/pxt-core/built/pxt.js travis"
-	}
+  "name": "pxt-stm32-iot-node",
+  "version": "0.0.17",
+  "description": "ST IoT-Node for Microsoft MakeCode",
+  "public": true,
+  "keywords": [
+    "JavaScript",
+    "education",
+    "pxt",
+    "MakeCode",
+    "Microsoft"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node.git#readme",
+  "files": [
+    "README.md",
+    "pxtarget.json",
+    "built/*.js",
+    "built/*.json",
+    "built/*.d.ts",
+    "sim/public",
+    "docs/*.md",
+    "docs/*/*.md",
+    "docs/*/*/*.md"
+  ],
+  "main": "built/pxtrequire.js",
+  "typings": "built/pxtrequire.d.ts",
+  "devDependencies": {
+    "typescript": "2.6.1",
+    "rtlcss": "^2.1.2",
+    "autoprefixer": "^6.7.6",
+    "less": "2.7.3",
+    "semantic-ui-less": "2.2.14",
+    "@types/bluebird": "2.0.33",
+    "@types/jquery": "3.2.16",
+    "@types/marked": "0.3.0",
+    "@types/node": "8.0.53"
+  },
+  "dependencies": {
+    "pxt-common-packages": "0.23.29",
+    "pxt-core": "3.19.2"
+  },
+  "scripts": {
+    "start": "node node_modules/pxt-core/built/pxt.js serve --cloud --no-browser -h \"0.0.0.0\" -w 3233 -p 3232",
+    "test": "node node_modules/pxt-core/built/pxt.js travis"
+  }
 }
