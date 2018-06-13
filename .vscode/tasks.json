@@ -1,20 +1,35 @@
 {
-	"version": "0.1.0",
-	// Task runner is jake
-	"command": "pxt",
-	// Need to be executed in shell / cmd
-	"isShellCommand": true,
-	"showOutput": "always",
-	"tasks": [
-		{
-			// TS build command is local.
-			"taskName": "serve",
-			// Make this the default build command.
-			"isBuildCommand": true,
-			// Use the redefined Typescript output problem matcher.
-			"problemMatcher": [
-				"$tsc"
-			]
-		}
-	]
+    "version": "2.0.0",
+    "tasks": [{
+        "label": "pxt deploy",
+        "type": "shell",
+        "command": "pxt deploy",
+        "group": "build",
+        "problemMatcher": [ "$tsc" ]
+    }, {
+        "label": "pxt build",
+        "type": "shell",
+        "command": "pxt build",
+        "group": "test",
+        "problemMatcher": [ "$tsc" ]
+    }, {
+        "label": "pxt clean",
+        "type": "shell",
+        "command": "pxt clean",
+        "group": "test",
+        "problemMatcher": [ "$tsc" ]
+    }, {
+        "label": "pxt serial",
+        "type": "shell",
+        "command": "pxt serial",
+        "group": "test",
+        "problemMatcher": [ "$tsc" ]
+    },
+    {
+        "label": "pxt serve",
+        "type": "shell",
+        "command": "pxt serve",
+        "group": "test",
+		"problemMatcher": ["$tsc"]
+	}]
 }
