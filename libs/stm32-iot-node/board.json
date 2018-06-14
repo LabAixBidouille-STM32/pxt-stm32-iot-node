@@ -27,15 +27,27 @@
             }
         ],
         "leds": [{
-            "x": 372.6,
+            "x": 334.6,
             "y": 98.1,
             "h": 7,
             "w": 17,
             "color": "#FF1E1E",
             "label": "LED"
-        }],
+        },
+        {
+            "x": 372.6,
+            "y": 98.1,
+            "h": 7,
+            "w": 17,
+            "color": "#FF1E1E",
+            "label": "LED2"
+        } ],
         "buttons":[{
-
+            "x": 372.6,
+            "y": 98.1,
+            "h": 7,
+            "w": 17,
+            "label": "BUTTON_USER"
         }]
     },
     "gpioPinBlocks": [
