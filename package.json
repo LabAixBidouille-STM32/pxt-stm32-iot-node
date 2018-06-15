@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "pxt-common-packages": "0.23.29",
-    "pxt-core": "3.19.2"
+    "pxt-core": "3.19.5"
   },
   "scripts": {
     "start": "node node_modules/pxt-core/built/pxt.js serve --cloud --no-browser -h \"0.0.0.0\" -w 3233 -p 3232",
