@@ -12,7 +12,8 @@
         "libs/buttons",
         "libs/core",
         "libs/servo",
-        "libs/stm32-iot-node",
+        "libs/serial",
+        "libs/stm32-iot-node",        
         "libs/tests"
     ],
 
