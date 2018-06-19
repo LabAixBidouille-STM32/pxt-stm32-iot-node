@@ -16,7 +16,8 @@
         "buttons": "file:../buttons",
         "accelerometer": "file:../accelerometer",
         "thermometer": "file:../thermometer",
-        "serial": "file:../serial"
+        "serial": "file:../serial",
+        "music": "file:../music---pwm"
     },
     "public": true
 }
