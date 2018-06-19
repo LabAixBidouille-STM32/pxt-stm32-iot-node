@@ -85,7 +85,7 @@
     },
     "groundPins": ["GND1", "GND0", "GND2"],
     "threeVoltPins": ["3.3V"],
-    "onboardComponents": ["accelerometer"],
+    "onboardComponents": ["accelerometer", "thermometer"],
     "marginWhenBreadboarding": [
         0,
         0,

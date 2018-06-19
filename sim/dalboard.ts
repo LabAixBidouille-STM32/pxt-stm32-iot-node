@@ -19,8 +19,10 @@ namespace pxsim {
         implements MusicBoard,
         LightBoard,
         CapTouchBoard,
+        TemperatureBoard,
         AccelerometerBoard,
-        PixelBoard {
+        PixelBoard,
+        StorageBoard {
         // state & update logic for component services
         view: SVGElement;
         edgeConnectorState: EdgeConnectorState;
@@ -32,6 +34,10 @@ namespace pxsim {
         pixelPin: Pin;
         touchButtonState: TouchButtonState;
         accelerometerState: AccelerometerState;
+        thermometerState: AnalogSensorState;
+        thermometerUnitState: number;
+        storageState: StorageState;
+
 
         constructor(public boardDefinition: BoardDefinition) {
             super();
@@ -92,6 +98,7 @@ namespace pxsim {
             this.pixelPin = this.neopixelPin;
 
             this._neopixelState = {};
+            this.storageState = new StorageState();
             this.bus.setNotify(DAL.DEVICE_ID_NOTIFY, DAL.DEVICE_ID_NOTIFY_ONE);
 
             // TODO we need this.buttonState set for pxtcore.getButtonByPin(), but
@@ -130,6 +137,13 @@ namespace pxsim {
 
             this.builtinVisuals["photocell"] = () => new visuals.PhotoCellView(parsePinString);
             this.builtinPartVisuals["photocell"] = (xy: visuals.Coord) => visuals.mkPhotoCellPart(xy);
+
+            this.thermometerState = new AnalogSensorState(DAL.DEVICE_ID_THERMOMETER, -5, 50);
+            this.thermometerUnitState = pxsim.TemperatureUnit.Celsius;
+            this.builtinParts["thermometer"] =  new ThermometerState(this.thermometerState, this.thermometerUnitState);
+            this.builtinVisuals["thermometer"] = () => new visuals.ThermometerView();
+             
+
         }
 
         receiveMessage(msg: SimulatorMessage) {
