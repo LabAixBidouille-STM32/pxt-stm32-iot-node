@@ -8,6 +8,10 @@
         "approvedRepos": [
         ]
     },
+    "galleries": {
+        "Examples": "examples"
+    },
+    
     "languages": [
         "fr"
     ]
