@@ -5,6 +5,7 @@
 #include "MbedTimer.h"
 #include "MbedI2C.h"
 #include "MbedPin.h"
+#include "MbedSerial.h"
 #include "MultiButton.h"
 #include "STM32IotNodePin.h"
 #include "STM32IotNodeSPI.h"
