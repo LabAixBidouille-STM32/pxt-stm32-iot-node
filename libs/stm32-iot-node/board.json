@@ -42,13 +42,9 @@
             "color": "#FF1E1E",
             "label": "LED2"
         } ],
-        "buttons":[{
-            "x": 372.6,
-            "y": 98.1,
-            "h": 7,
-            "w": 17,
-            "label": "BUTTON_USER"
-        }]
+        "buttons":[
+            
+        ]
     },
     "gpioPinBlocks": [
         ["SCL", "SDA", "~D13", "~D12", "~D11", "~D10", "~D9", "~D8"],
