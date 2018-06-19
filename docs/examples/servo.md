@@ -9,3 +9,6 @@ forever(function() {
     pins.A1.servoWrite(angle)
 })
 ```
+```package
+stm32-iot-node
+```

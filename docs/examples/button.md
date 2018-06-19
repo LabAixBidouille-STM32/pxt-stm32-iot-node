@@ -7,6 +7,6 @@ input.buttonA1.onEvent(ButtonEvent.Down, function () {
     pins.LED.digitalWrite(true)
 })
 input.buttonA1.onEvent(ButtonEvent.Up, function () {
-    pins.LED.digitalWrite(false)    
+    pins.LED.digitalWrite(false)
 })
 ```

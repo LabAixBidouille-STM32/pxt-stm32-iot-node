@@ -5,10 +5,10 @@ Control the brightness of an LED with a light sensor.
 ```blocks
 forever(function () {
     let brightness = pins.A1.analogRead();
-    pins.A2.analogWrite(brightness);
+    pins.D5.analogWrite(brightness);
 })
 ```
 
 ```package
-adafruit-metro-m0-express
+stm32-iot-node
 ```

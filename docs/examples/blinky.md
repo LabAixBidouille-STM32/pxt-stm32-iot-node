@@ -7,10 +7,10 @@ forever(function() {
     pins.LED.digitalWrite(true)
     pause(500)
     pins.LED.digitalWrite(false)
-    pause(500)    
+    pause(500)
 })
 ```
 
 ```package
-adafruit-metro-m0-express
+stm32-iot-node
 ```

@@ -9,3 +9,7 @@ forever(function () {
     pins.D2.digitalWrite(on)
 })
 ```
+
+```package
+stm32-iot-node
+```
