@@ -11,6 +11,6 @@ Step by step guide to coding your @boardname@.
   "cardType": "tutorial",
   "label": "New? Start Here!",
   "labelClass": "pink ribbon large",
-  "url":"/tutorials/getting-started",
+  "url":"/tutorials/getting-started"
 }]
 ```
