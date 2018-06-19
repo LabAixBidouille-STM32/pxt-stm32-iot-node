@@ -9,7 +9,8 @@
         ]
     },
     "galleries": {
-        "Examples": "examples"
+        "Examples": "examples",
+        "Tutorials": "tutorials"
     },
     
     "languages": [
