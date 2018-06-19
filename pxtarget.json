@@ -11,6 +11,7 @@
         "libs/base",
         "libs/buttons",
         "libs/core",
+        "libs/light",
         "libs/servo",
         "libs/stm32-iot-node",        
         "libs/tests"
