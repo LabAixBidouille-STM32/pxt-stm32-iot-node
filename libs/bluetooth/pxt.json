@@ -1,0 +1,14 @@
+{
+    "name": "bluetooth",
+    "description": "Bluetooth services",
+    "files": [
+        "enums.d.ts",
+        "shims.d.ts",
+        "bluetooth.ts",
+        "bluetooth.cpp"
+    ],
+    "public": true,
+    "dependencies": {
+        "core": "file:../core"
+    }
+}

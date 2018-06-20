@@ -9,6 +9,7 @@
     "bundleddirs": [
         "libs/accelerometer",
         "libs/base",
+        "libs/bluetooth",
         "libs/buttons",
         "libs/core",
         "libs/light",
