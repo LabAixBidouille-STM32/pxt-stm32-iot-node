@@ -42,8 +42,8 @@
     "@types/node": "8.0.53"
   },
   "dependencies": {
-    "pxt-common-packages": "0.23.34",
-    "pxt-core": "3.20.2",
+    "pxt-common-packages": "0.23.39",
+    "pxt-core": "3.20.11",
     "serialport": "^6.2.0"
   },
   "scripts": {
