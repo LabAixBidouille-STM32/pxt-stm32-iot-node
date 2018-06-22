@@ -32,6 +32,7 @@ def projectName = "pxt-stm32-iot-node"
 
     Utilities.setMachineAffinity(newJob, "Ubuntu", "20161020")
     InternalUtilities.standardJobSetup(newJob, project, isPR, "*/*")
+    InternalUtilities.addPrivatePermissions(newJob, ["LabAixBidouille", "nedseb"])    
 
     if (isPR) {
         Utilities.addGithubPRTrigger(newJob, "Default Testing")
