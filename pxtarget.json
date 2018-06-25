@@ -7,22 +7,10 @@
     "description": "A Blocks / JavaScript code editor for the STM32L4 Discovery kit IoT node",
     "corepkg": "stm32-iot-node",
     "bundleddirs": [
-        "libs/accelerometer",
         "libs/base",
-        "libs/bluetooth",
         "libs/buttons",
         "libs/core",
-        "libs/light",
-        "libs/lightsensor",
-        "libs/microphone",
-        "libs/music---pwm",
-        "libs/pixel",
-        "libs/serial",        
-        "libs/servo",
-        "libs/stm32-iot-node",
-        "libs/storage",
-        "libs/tests",
-        "libs/thermometer"
+        "libs/tests"
     ],
 
     "serial": {
