@@ -34,7 +34,7 @@ static void initCodal() {
             CodalComponent::components[i]->init();
     }
 
-    usb_init();
+    //usb_init();
 }
 
 // ---------------------------------------------------------------------------
