@@ -17,7 +17,7 @@ void platform_init() {
 }
 
 void cpu_clock_init() {
-    // missing in Codal
+    // missing in Codal      
 }
 
 }

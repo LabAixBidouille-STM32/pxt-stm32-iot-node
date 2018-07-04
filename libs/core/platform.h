@@ -19,8 +19,6 @@
 // Codal doesn't yet distinguish between PWM and AIN
 #define DEV_ANALOG_PINS (DEV_PWM_PINS | DEV_AIN_PINS)
 
-// #define PlatformDMAC 
-
 #define CODAL_MBED codal::_mbed
 #define CODAL_SPI STM32IotNodeSPI
 #define CODAL_PIN STM32IotNodePin

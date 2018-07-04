@@ -1,5 +1,4 @@
 namespace config {
-    export const NUM_NEOPIXELS = 0;
     export const PIN_SPEAKER_AMP = DAL.PA_5;
     export const PIN_A0 = DAL.PC_5;
     export const PIN_A1 = DAL.PC_4;

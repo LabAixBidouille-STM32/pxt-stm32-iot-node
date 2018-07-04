@@ -62,6 +62,7 @@
         "flashCodeAlign": 256,
         "floatingPoint": true,
         "taggedInts": true,
+        "vtableShift": 4,
         "upgrades": []
     },
     "runtime": {
@@ -84,17 +85,10 @@
         "codalTarget": {
             "name": "codal-stm32-iot-node",
             "url": "https://github.com/LabAixBidouille-STM32/codal-stm32-iot-node",
-            "branch": "v0.0.13",
+            "branch": "v0.0.19",
             "type": "git"
         },
         "codalBinary": "STM32_IOT_NODE",
-        "yottaConfig": {
-            "pxt": {
-                "board": {
-                    "id": "BOARD_ID_IOT_NODE"
-                }
-            }
-        },
         "githubCorePackage": "lancaster-university/codal",
         "gittag": "v0.4.0",
         "serviceId": "codal2stm32iot"
