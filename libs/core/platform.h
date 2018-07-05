@@ -20,8 +20,8 @@
 #define DEV_ANALOG_PINS (DEV_PWM_PINS | DEV_AIN_PINS)
 
 #define CODAL_MBED codal::_mbed
-#define CODAL_SPI STM32IotNodeSPI
-#define CODAL_PIN STM32IotNodePin
+#define CODAL_SPI codal::STM32IotNodeSPI
+#define CODAL_PIN codal::STM32IotNodePin
 
 #define IMAGE_BITS 4
 /*
