@@ -57,7 +57,7 @@
         "deployDrives": ".*",
         "deployFileMarker": "MBED.HTM",
         "driveName": "DIS_L4IOT",
-        "openocdScript": "source [find board/stm32l4discovery.cfg]; set CHIPNAME STM32L475VGTx; source [find target/stm32l4x.cfg]",
+        "openocdScript": "source [find interface/stlink-v2-1.cfg];set WORKAREASIZE 0x8000;transport select hla_swd;set CHIPNAME STM32L475VGTx;set ENABLE_LOW_POWER 1;set STOP_WATCHDOG 1;set CLOCK_FREQ 4000;reset_config none separate;set CONNECT_UNDER_RESET 1;source [find target/stm32l4x.cfg];adapter_khz 480",
         "flashChecksumAddr": 0,
         "flashCodeAlign": 256,
         "floatingPoint": true,
