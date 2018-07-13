@@ -12,6 +12,13 @@
         "command": "pxt build",
         "group": "test",
         "problemMatcher": [ "$tsc" ]
+    }
+    ,{
+        "label": "pxt buildtarget",
+        "type": "shell",
+        "command": "pxt buildtarget --localbuild",
+        "group": "test",
+        "problemMatcher": [ "$tsc" ]
     }, {
         "label": "pxt clean",
         "type": "shell",

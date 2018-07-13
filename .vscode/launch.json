@@ -2,6 +2,22 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/libs/blocksprj/built/codal/build/STM32_IOT_NODE",
+            "name": "Debug (OpenOCD)",
+            "device": "STM32L475VGTx",
+			"searchDir": [
+				"/usr/share/openocd/scripts/",
+				"${workspaceRoot}/libs/blocksprj/built/codal/libraries/codal-stm32-iot-node/scripts/"
+			],
+            "configFiles": [
+				"openocd.cfg",
+			],
+        },
+		{
 			"name": "Launch",
 			"type": "node",
 			"request": "launch",
