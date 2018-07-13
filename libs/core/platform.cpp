@@ -7,15 +7,15 @@ static void initRandomSeed() {
     seedRandom(seed);
 }
 
-static codal::_mbed::Serial *serial;
 void platformSendSerial(const char *data, int len) {
+    /*
     if (!serial) {
-        serial = new codal::_mbed::Serial(SERIAL_TX, SERIAL_RX);
+        serial = new codal::_mbed::Serial(USBTX, NC);
         serial->baud(9600);
     }
     serial->send((uint8_t*)data, len);
+    */
 }
-
 
 void platform_init() {
     initRandomSeed();
@@ -25,5 +25,5 @@ void platform_init() {
 }
 
 void cpu_clock_init() {
-    
+   devTimer.init(); 
 }

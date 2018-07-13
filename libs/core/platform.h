@@ -2,13 +2,13 @@
 #define __PXT_PLATFORM_H
 
 #include "Image.h"
-#include "MbedTimer.h"
-#include "MbedI2C.h"
-#include "MbedPin.h"
-#include "MbedSerial.h"
+#include "CodalCompat.h"
+#include "stm32l4xxSPI.h"
+#include "stm32l4xxI2C.h"
+#include "stm32l4xxSerial.h"
+#include "stm32l4xxPin.h"
+#include "stm32l4xxTimer.h"
 #include "MultiButton.h"
-#include "STM32IotNodePin.h"
-#include "STM32IotNodeSPI.h"
 #define PAGE_SIZE 1024
 
 #define DEV_NUM_PINS 100
@@ -19,12 +19,15 @@
 // Codal doesn't yet distinguish between PWM and AIN
 #define DEV_ANALOG_PINS (DEV_PWM_PINS | DEV_AIN_PINS)
 
-#define CODAL_MBED codal::_mbed
-#define CODAL_SPI codal::STM32IotNodeSPI
-#define CODAL_PIN codal::STM32IotNodePin
+#define CODAL_MBED codal
+#define CODAL_SPI codal::STM32L4xxSPI
+#define CODAL_I2C codal::STM32L4xxI2C
+#define CODAL_PIN codal::STM32L4xxPin
+#define CODAL_TIMER codal::STM32L4xxTimer
+#define CODAL_SERIAL codal::STM32L4xxSerial
 
 #define IMAGE_BITS 4
-/*
+/* 
  * @param nominalValue The value (in SI units) of a nominal position.
  * @param nominalReading The raw reading from the sensor at the nominal position.
  * @param beta The Steinhart-Hart Beta constant for the device
