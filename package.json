@@ -29,7 +29,7 @@
     "docs/*/*/*.md",
     "docs/static/*.svg",
     "docs/static/*.png",
-    "docs/static/libs/*.png
+    "docs/static/libs/*.png"
   ],
   "main": "built/pxtrequire.js",
   "typings": "built/pxtrequire.d.ts",
