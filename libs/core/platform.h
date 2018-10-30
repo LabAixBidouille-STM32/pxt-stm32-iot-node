@@ -5,7 +5,6 @@
 #include "CodalCompat.h"
 #include "stm32l4xxSPI.h"
 #include "stm32l4xxI2C.h"
-#include "stm32l4xxSerial.h"
 #include "stm32l4xxPin.h"
 #include "stm32l4xxTimer.h"
 #include "MultiButton.h"
