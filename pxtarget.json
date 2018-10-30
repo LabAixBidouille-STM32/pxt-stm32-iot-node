@@ -45,7 +45,7 @@
         "packages": true,
         "sharing": true,
         "publishing": true,
-        "importing": false,
+        "importing": true,
         "preferredPackages": [],
         "githubPackages": true
     },
@@ -90,7 +90,7 @@
         },
         "codalBinary": "STM32_IOT_NODE",
         "githubCorePackage": "lancaster-university/codal",
-        "gittag": "v0.4.0",
+        "gittag": "v0.5.0",
         "serviceId": "codal2stm32iot"
     },
     "appTheme": {
@@ -118,6 +118,10 @@
         "homeScreenHero": "./static/hero.svg",
         "docMenu": [
             {
+                "name": "About",
+                "path": "/about"
+            },
+            {
                 "name": "Support",
                 "path": "https://community.st.com/stm32"
             },
@@ -134,8 +138,8 @@
                 "path": "/reference"
             },
             {
-                "name": "Buy",
-                "path": "https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/b-l475e-iot01a.html"
+                "name": "GitHub",
+                "path": "https://github.com/Microsoft/pxt-stm32-iot-node/"
             }
         ],
         "invertedMenu": true,
@@ -147,6 +151,7 @@
         "simAnimationEnter": "fly right in",
         "simAnimationExit": "fly right out",
         "hasAudio": true,
+        "usbDocs": "/device/usb",
         "disableBlockIcons": true,
         "socialOptions": {
             "twitterHandle": "labaixbidouille",

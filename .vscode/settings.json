@@ -16,9 +16,9 @@
     "search.exclude": {
         "**/built": true,
         "**/node_modules": true,
-        "**/yotta_modules": true,
+        "**/yotta_modules/**": true,
         "**/yotta_targets": true,
-        "**/pxt_modules": true
+        "**/pxt_modules/**": true
     },
     "tslint.enable": true,
     "tslint.rulesDirectory": "node_modules/tslint-microsoft-contrib",
