@@ -1,5 +1,5 @@
 {
-    "name": "{0}",
+    "name": "{0} block",
     "dependencies": {
         "stm32-iot-node": "file:../stm32-iot-node"
     },

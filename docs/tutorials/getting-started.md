@@ -1,4 +1,4 @@
-# Getting started
+# Getting Started
 
 ### Step 1 @fullscreen
 
@@ -50,5 +50,10 @@ forever(() => {
 
 ### Step 6
 
-Awesome! Congratulations on completing your first challenge on the @boardname@.
+If you have a @boardname@, connect a USB cable to it and click ``|Download|``. Save the program to the **@drivename@** drive. This transfers your code to the @boardname@!
 
+
+
+## Step 7
+
+Well done! You've completed your first Microsoft MakeCode activity.
