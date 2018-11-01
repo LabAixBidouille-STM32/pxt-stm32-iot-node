@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "pxt-common-packages": "0.25.2",
-    "pxt-core": "4.2.12",
+    "pxt-core": "4.3.2",
     "serialport": "^6.2.0"
   },
   "scripts": {
