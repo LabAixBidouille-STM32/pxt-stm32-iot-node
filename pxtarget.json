@@ -8,13 +8,15 @@
     "corepkg": "stm32-iot-node",
     "bundleddirs": [
         "libs/base",
-        "libs/buttons",
         "libs/core",
+        "libs/stm32-iot-node",
+
+        "libs/buttons",
         "libs/serial",
         "libs/servo",
-        "libs/stm32-iot-node",
-        "libs/tests",
-        "libs/thermometer"
+        "libs/thermometer",
+
+        "libs/tests"
     ],
 
     "serial": {
@@ -57,7 +59,7 @@
         "useUF2": false,
         "webUSB": false,
         "hasHex": true,
-        "deployDrives": ".*",
+        "deployDrives": "DIS_L4IOT",
         "deployFileMarker": "MBED.HTM",
         "driveName": "DIS_L4IOT",
         "openocdScript": "source [find interface/stlink-v2-1.cfg];set WORKAREASIZE 0x8000;transport select hla_swd;set CHIPNAME STM32L475VGTx;set ENABLE_LOW_POWER 1;set STOP_WATCHDOG 1;set CLOCK_FREQ 4000;reset_config none separate;set CONNECT_UNDER_RESET 1;source [find target/stm32l4x.cfg];adapter_khz 480",
@@ -154,6 +156,20 @@
         "simAnimationEnter": "fly right in",
         "simAnimationExit": "fly right out",
         "hasAudio": true,
+        "enableTrace": true,
+        "print": true,
+        "experiments": [
+            "greenScreen",
+            "print",
+            "allowPackageExtensions",
+            "instructions",
+            "debugger",
+            "bluetoothUartConsole",
+            "bluetoothPartialFlashing"
+        ],
+        "bluetoothUartFilters": [{
+            "namePrefix": "BBC micro:bit"
+        }],
         "usbDocs": "/device/usb",
         "disableBlockIcons": true,
         "socialOptions": {

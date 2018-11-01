@@ -20,9 +20,12 @@
   "files": [
     "README.md",
     "pxtarget.json",
+    "targetconfig.json",
     "built/*.js",
     "built/*.json",
     "built/*.d.ts",
+    "built/hexcache",
+    "built/web",
     "sim/public",
     "docs/*.md",
     "docs/*/*.md",
@@ -44,7 +47,7 @@
   },
   "dependencies": {
     "pxt-common-packages": "0.25.2",
-    "pxt-core": "4.2.10",
+    "pxt-core": "4.2.12",
     "serialport": "^6.2.0"
   },
   "scripts": {
