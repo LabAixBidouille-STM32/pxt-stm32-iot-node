@@ -11,6 +11,7 @@
         "libs/core",
         "libs/stm32-iot-node",
 
+        "libs/bluetooth",
         "libs/buttons",
         "libs/serial",
         "libs/servo",

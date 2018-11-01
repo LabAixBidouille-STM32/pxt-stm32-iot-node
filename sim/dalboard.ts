@@ -66,9 +66,7 @@ namespace pxsim {
                         let id = pinId(sublbl)
                         if (id != null) {
                             if (pinList.indexOf(id) < 0) {
-                                pinList.push(id)
-                                /*if ((DAL.PA_2 <= id && id <= DAL.PA_11) ||
-                                    (DAL.PB_0 <= id && id <= DAL.PB_9))*/
+                                pinList.push(id);
                                 servos[sublbl] = id;
                             }
                             pinIds[lbl] = id;
