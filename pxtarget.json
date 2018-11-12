@@ -10,16 +10,11 @@
         "libs/base",
         "libs/core",
         "libs/stm32-iot-node",
-
-        "libs/bluetooth",
         "libs/buttons",
-        "libs/serial",
         "libs/servo",
         "libs/thermometer",
-
         "libs/tests"
     ],
-
     "serial": {
         "useHF2": true,
         "useEditor": true,
@@ -84,7 +79,7 @@
         "onStartWeight": 100,
         "pauseUntilBlock": {
             "category": "loops"
-        } 
+        }
     },
     "compileService": {
         "buildEngine": "codal",
@@ -97,7 +92,8 @@
         "codalBinary": "STM32_IOT_NODE",
         "githubCorePackage": "lancaster-university/codal",
         "gittag": "v0.5.0",
-        "serviceId": "codal2stm32iot"
+        "serviceId": "codal2stm32iot",
+        "dockerImage": "pext/yotta:latest"
     },
     "appTheme": {
         "accentColor": "#0089BF",

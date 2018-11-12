@@ -6,6 +6,7 @@
   "keywords": [
     "JavaScript",
     "education",
+    "maker",
     "pxt",
     "MakeCode",
     "Microsoft"
@@ -32,10 +33,10 @@
     "docs/*/*/*.md",
     "docs/static/*.svg",
     "docs/static/*.png",
-    "docs/static/libs/*.png"
+    "docs/static/libs/*.png",
+    "docs/static/fonts/*",
+    "docs/static/icons/favicon.ico"
   ],
-  "main": "built/pxtrequire.js",
-  "typings": "built/pxtrequire.d.ts",
   "devDependencies": {
     "typescript": "2.6.1",
     "semantic-ui-less": "2.2.14",
@@ -46,9 +47,8 @@
     "@types/web-bluetooth": "0.0.4"
   },
   "dependencies": {
-    "pxt-common-packages": "0.25.2",
-    "pxt-core": "4.3.2",
-    "serialport": "^6.2.0"
+    "pxt-common-packages": "0.25.10",
+    "pxt-core": "4.6.2"
   },
   "scripts": {
     "start": "node node_modules/pxt-core/built/pxt.js serve --cloud --no-browser -h \"0.0.0.0\" -w 3233 -p 3232",
