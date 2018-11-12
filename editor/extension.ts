@@ -138,7 +138,7 @@ namespace pxt.editor {
     initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
         pxt.debug('loading pxt-stm32-iot-node target extensions...')
         const res: pxt.editor.ExtensionResult = {
-            showUploadInstructionsAsync: (fn: string, url: string, confirmAsync?: (options: any) => Promise<number>) => {
+            deployCoreAsync: (resp: pxtc.CompileResult) => {
                 let resolve: (thenableOrResult?: void | PromiseLike<void>) => void;
                 let reject: (error: any) => void;
 
@@ -162,6 +162,9 @@ namespace pxt.editor {
                     resolve = res;
                     reject = rej;
                 });
+                return deferred;
+            },
+            showUploadInstructionsAsync: (fn: string, url: string, confirmAsync?: (options: any) => Promise<number>) => {    
                 const boardName = pxt.appTarget.appTheme.boardName || "???";
                 const boardDriveName = pxt.appTarget.appTheme.driveDisplayName || pxt.appTarget.compile.driveName || "???";
 
