@@ -92,8 +92,7 @@
         "codalBinary": "STM32_IOT_NODE",
         "githubCorePackage": "lancaster-university/codal",
         "gittag": "v0.5.0",
-        "serviceId": "codal2stm32iot",
-        "dockerImage": "pext/yotta:latest"
+        "serviceId": "codal2stm32iot"
     },
     "appTheme": {
         "accentColor": "#0089BF",
