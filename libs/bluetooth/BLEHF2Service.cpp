@@ -1,7 +1,7 @@
-#include "MicroBitConfig.h"
+#include "CodalConfig.h"
 #include "ble/UUID.h"
 #include "BLEHF2Service.h"
-#include "MicroBitEvent.h"
+#include "CodalEvent.h"
 
 BLEHF2Service::BLEHF2Service(BLEDevice &_ble) :
         ble(_ble)
