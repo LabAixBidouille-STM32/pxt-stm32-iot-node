@@ -132,17 +132,9 @@
         "invertedMonaco": true,
         "monacoToolbox": true,
         "highContrast": true,
-        "greenScreen": true,
         "simAnimationEnter": "fly right in",
         "simAnimationExit": "fly right out",
         "hasAudio": true,
-        "enableTrace": true,
-        "print": true,
-        "experiments": [
-            "print",
-            "allowPackageExtensions",
-            "instructions"
-        ],
         "disableBlockIcons": true,
         "socialOptions": {
             "twitterHandle": "labaixbidouille",
