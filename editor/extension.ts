@@ -15,6 +15,10 @@ namespace pxt.editor {
             return parseInt(this.data, 16)<<16;
         }
 
+        dataToUint8Array(): Uint8Array{
+            return Uint8Array.from(Array.from(this.data, (x:string) => parseInt(x, 16)));
+        }
+
         dataToHexStrings(): string[] {
             let res: string[] = [];
             for (let i = 0; i < this.length; ++i) {
@@ -26,13 +30,13 @@ namespace pxt.editor {
 
     function hexToBinary(hexInput: string): Uint8Array {
         let hex = hexInput.split("\n");
-        let hexOutput: string[] = [];
-
+        let output = new Uint8Array(hexInput.length - hex.length);
+        let outputSize = 0;
         // Figure out what the base offset is
         let startBaseAddr = parseIHexRecord(hex[0]).dataToBaseAdress();
         let currentBaseAddr = startBaseAddr;
 
-        for (let i = 0; i < hex.length; ++i) {
+        for (let i = 1; i < hex.length; ++i) {
             let m = parseIHexRecord(hex[i]);
             if (!m) continue;
 
@@ -40,19 +44,21 @@ namespace pxt.editor {
                 currentBaseAddr = m.dataToBaseAdress();
             } else if (m.type == 0) {
                 // Ensure we're padded properly.  Add "0xff" if needed to fill in gaps in the hexfile.
-                while (startBaseAddr + hexOutput.length < currentBaseAddr + m.adress) {
-                    hexOutput.push("FF");
+                while (startBaseAddr + outputSize < currentBaseAddr + m.adress) {
+                    output[outputSize++] = (0xFF);
+
                 }
-                hexOutput.push(...m.dataToHexStrings());
+                
+                let data = m.dataToUint8Array();
+
+                for (let i = 0; i < data.length; i++) {
+                    output[outputSize++] = data[i];
+                }
             }
         }
 
-        pxt.log("Resulting binary is " + hexOutput.length + " bytes");
+        pxt.log("Resulting binary is " + output.length + " bytes");
         
-        let output = new Uint8Array(hexOutput.length);
-        for (let i = 0; i < hexOutput.length; i++) {
-            output[i] = parseInt(hexOutput[i], 16);
-        }
         return output;
     }
 
@@ -113,9 +119,9 @@ namespace pxt.editor {
                                         <div class="content">
                                             <div class="description">
                                                 <span class="ui purple circular label">2</span>
-                                                <strong>${lf("Move the .hex file to the {0}", boardName)}</strong>
+                                                <strong>${lf("Move the file to the {0}", boardName)}</strong>
                                                 <br />
-                                                <span style="font-size:small">${lf("Locate the downloaded .hex file and drag it to the <strong>{0}</strong> drive", boardDriveName)}</span>
+                                                <span style="font-size:small">${lf("Locate the downloaded file and drag it to the <strong>{0}</strong> drive", boardDriveName)}</span>
                                             </div>
                                         </div>
                                     </div>
