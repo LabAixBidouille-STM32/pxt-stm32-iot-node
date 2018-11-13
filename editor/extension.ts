@@ -16,7 +16,11 @@ namespace pxt.editor {
         }
 
         dataToUint8Array(): Uint8Array{
-            return Uint8Array.from(Array.from(this.data, (x:string) => parseInt(x, 16)));
+            let res: Uint8Array = new Uint8Array(this.length);
+            for (let i = 0; i < this.length; ++i) {
+                res[i] = parseInt(this.data[2 * i] + this.data[2 * i + 1], 16);
+            }
+            return res;
         }
 
         dataToHexStrings(): string[] {
