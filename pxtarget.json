@@ -15,22 +15,6 @@
         "libs/thermometer",
         "libs/tests"
     ],
-    "serial": {
-        "useHF2": true,
-        "useEditor": true,
-        "log": true,
-        "editorTheme": {
-            "graphBackground": "#d9d9d9",
-            "lineColors": [
-                "#CC2936",
-                "#FFC914",
-                "#2EB7ED",
-                "#FB48C7",
-                "#08415C",
-                "#C200C0"
-            ]
-        }
-    },
     "simulator": {
         "autoRun": true,
         "streams": false,
@@ -155,18 +139,10 @@
         "enableTrace": true,
         "print": true,
         "experiments": [
-            "greenScreen",
             "print",
             "allowPackageExtensions",
-            "instructions",
-            "debugger",
-            "bluetoothUartConsole",
-            "bluetoothPartialFlashing"
+            "instructions"
         ],
-        "bluetoothUartFilters": [{
-            "namePrefix": "BBC micro:bit"
-        }],
-        "usbDocs": "/device/usb",
         "disableBlockIcons": true,
         "socialOptions": {
             "twitterHandle": "labaixbidouille",
