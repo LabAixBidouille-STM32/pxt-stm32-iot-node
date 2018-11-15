@@ -58,9 +58,10 @@
 #define CFG_PIN_LED_B 54
 #define CFG_PIN_LED1 55
 #define CFG_PIN_LED2 56
-#define CFG_PIN_LED3 57
-#define CFG_PIN_LED4 58
+#define CFG_PIN_LED_BLE 57
+#define CFG_PIN_LED_WIFI 58
 #define CFG_SPEAKER_VOLUME 59
+#define CFG_PIN_BTN_USER 60
 
 #define CFG_PIN_A0 100
 #define CFG_PIN_A1 101
