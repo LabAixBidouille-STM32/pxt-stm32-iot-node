@@ -1,8 +1,8 @@
 namespace pxsim.visuals {
     const svg = pxsim.svg;
 
-    export const VIEW_WIDTH = 372.3404255319149;
-    export const VIEW_HEIGHT = 361.70212765957444;
+    export const VIEW_WIDTH = 375;
+    export const VIEW_HEIGHT = 375;
     const TOP_MARGIN = 20;
     const MID_MARGIN = 40;
     const BOT_MARGIN = 20;
@@ -16,7 +16,27 @@ namespace pxsim.visuals {
     stroke: #404040;
     fill: #000000;
 }
-    `
+
+.sim-reset-btn {
+    stroke: #404040;
+    fill: #000000;
+}
+
+.sim-reset-btn:active {
+    stroke: #404040;
+    fill: #FFA500;
+}
+
+.sim-user-btn {
+    stroke: #404040;
+    fill: #0047bb;
+}
+
+.sim-user-btn:active {
+    stroke: #404040;
+    fill: #FFA500;
+}
+`
 
     export interface IBoardTheme {
         accent?: string;
@@ -89,17 +109,16 @@ namespace pxsim.visuals {
         disableTilt?: boolean;
     }
 
-    let nextBoardId = 0;
     export class MetroBoardSvg extends GenericBoardSvg {
-
         public board: pxsim.DalBoard;
+
         private onBoardLeds: BoardLed[];
         private onBoardNeopixel: BoardNeopixel;
         private onBoardReset: BoardButton;
+        private onBoardUser: BoardButton;
 
         constructor(public props: MetroBoardProps) {
             super(props);
-
             const el = this.getView().el;
             this.addDefs(el);
 
@@ -118,8 +137,13 @@ namespace pxsim.visuals {
             }
 
             if (props.visualDef.reset) {
-                this.onBoardReset = new BoardButton(props.visualDef.reset.x, props.visualDef.reset.y)
+                this.onBoardReset = new BoardButtonReset(props.visualDef.reset.x, props.visualDef.reset.y, props.visualDef.reset.h);
+                el.appendChild(this.onBoardReset.getElement());
             }
+
+            this.onBoardUser = new BoardButtonUser(43.3, 173.8, props.visualDef.reset.h);
+            el.appendChild(this.onBoardUser.getElement());
+
 
             if (props && props.theme)
                 this.updateTheme();
@@ -128,24 +152,25 @@ namespace pxsim.visuals {
                 this.board = this.props.runtime.board as pxsim.DalBoard;
                 this.board.updateSubscribers.push(() => this.updateState());
                 this.updateState();
-                //this.attachEvents();
             }
-
-
         }
 
         public updateTheme() {
         }
 
         public updateState() {
+            let state = this.board;
+            if (!state) return;
+            
             this.onBoardLeds.forEach(l => l.updateState());
-            const state = this.board.neopixelState(this.board.defaultNeopixelPin().id)
-            if (state.buffer) {
-                const rgb = state.pixelColor(0)
+            const neopixelState = this.board.neopixelState(this.board.defaultNeopixelPin().id)
+            if (neopixelState.buffer) {
+                const rgb = neopixelState.pixelColor(0)
                 if (rgb) {
                     this.onBoardNeopixel.setColor(rgb as any);
                 }
             }
+            this.onBoardReset.updateState();
         }
 
         private addDefs(el: SVGElement) {
@@ -162,17 +187,60 @@ namespace pxsim.visuals {
         }
     }
 
-    class BoardButton {
+    class BoardButton extends CommonButton {
         private element: SVGElement;
-        constructor(x: number, y: number, r = 15) {
-            this.element = svg.elt("circle", { cx: x, cy: y, r, class: "sim-reset-btn" }) as SVGCircleElement
-            this.element.addEventListener("click", () => pxsim.control.reset(), false);
+        constructor(pinId: number, x: number, y: number, r: number, styleClass: string, label: string) {
+            
+            const txtSize = PIN_DIST * 1.3;
+            const txtXOff = PIN_DIST / 7;
+            const txtYOff = PIN_DIST / 10;
+
+            super(pinId);
+
+            let btng = <SVGGElement>svg.elt("g");
+            let btn = svg.elt("circle", { cx: x, cy: y, r, class: styleClass }) as SVGCircleElement
+            btng.appendChild(btn);
+            this.element = btng;
+        }
+
+        getElement() {
+            return this.element;
+        }
+
+        updateState() {
+        }
+    }
+
+    class BoardButtonReset extends BoardButton {
+        constructor(x: number, y: number, r: number) {
+            let pin = pinByName("RESET")
+            super(pin.id, x, y, r, "sim-reset-btn", "BUTTON_RESET");
+            this.getElement().addEventListener("click", () => pxsim.control.reset(), false);
+        }
+    }
+
+    class BoardButtonUser extends BoardButton {
+        constructor(x: number, y: number, r: number) {
+            let pin = pinByName("BTN_USER");
+            super(pin.id, x, y, r, "sim-user-btn", "BUTTON_USER");
+            this.attachEvents();
+        }
+        private attachEvents() {
+            pointerEvents.down.forEach(evid => this.getElement().addEventListener(evid, ev => {
+                    this.setPressed(true);
+                }));
+            this.getElement().addEventListener(pointerEvents.leave, ev => {
+                this.setPressed(false);
+            })
+            this.getElement().addEventListener(pointerEvents.up, ev => {
+                this.setPressed(false);
+            })
         }
     }
 
     class BoardLed {
         private element: SVGElement;
-        private colorOff = "#ddd"
+        private colorOff = "#aaa"
 
         constructor(x: number, y: number, private colorOn: string, private pin: Pin, w: number, h: number) {
             this.element = svg.elt("rect", { x, y, width: w, height: h, fill: this.colorOff });

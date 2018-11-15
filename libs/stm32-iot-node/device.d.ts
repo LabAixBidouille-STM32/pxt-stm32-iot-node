@@ -48,9 +48,9 @@ declare namespace pins {
     const LED2: PwmPin;
 
     //% fixedInstance shim=pxt::getPin(PIN_RX)
-    const RX: PwmPin;
+    const RX: DigitalPin;
     //% fixedInstance shim=pxt::getPin(PIN_TX)
-    const TX: PwmPin;
+    const TX: DigitalPin;
     //% fixedInstance shim=pxt::getPin(PIN_MISO)
     const MISO: DigitalPin;
     //% fixedInstance shim=pxt::getPin(PIN_MOSI)
@@ -205,10 +205,10 @@ declare namespace input {
     const buttonD13: Button;
 
     /**
-     * Button connecting BUTTON_USER to GND.
+     * Button connecting BTN_USER to GND.
      */
-    //% block="button BUTTON_USER" fixedInstance
-    //% shim=pxt::getButtonByPin(PIN_BTN_A,BUTTON_ACTIVE_LOW_PULL_UP)
-    const btn_A: Button;
+    //% block="button USER" fixedInstance
+    //% shim=pxt::getButtonByPin(PIN_BTN_USER,BUTTON_ACTIVE_LOW_PULL_UP)
+    const buttonUser: Button;
 }
 

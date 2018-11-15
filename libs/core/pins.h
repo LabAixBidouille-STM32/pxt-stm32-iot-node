@@ -62,6 +62,7 @@
 #define CFG_PIN_LED_WIFI 58
 #define CFG_SPEAKER_VOLUME 59
 #define CFG_PIN_BTN_USER 60
+#define CFG_PIN_RESET 61
 
 #define CFG_PIN_A0 100
 #define CFG_PIN_A1 101

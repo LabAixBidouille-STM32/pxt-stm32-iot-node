@@ -2,50 +2,72 @@
     "visual": {
         "image": "pkg://board.svg",
         "outlineImage": "pkg://boardwireframe.svg",
-        "width": 175,
-        "height": 170,
-        "pinDist": 5,
+        "useCrocClips": false,
+        "width": 350,
+        "height": 350,
+        "pinDist": 10,
         "pinBlocks": [{
-                "x": 55.7,
-                "y": 43,
-                "labels": ["SCL", "SDA", " ", "GND0", "~D13", "~D12", "~D11", "~D10", "~D9", "~D8"]
+                "x": 111.893255123826,
+                "y": 93.3587830762523,
+                "labels": ["SCL", "SDA", "AREF", "GND0", "~D13", "~D12", "~D11", "~D10", "~D9", "~D8"]
             },
             {
-                "x": 109.5,
-                "y": 43,
+                "x": 216.74056057524268,
+                "y": 93.35989712141898,
                 "labels": ["D7", "~D6", "~D5", "~D4", "~D3", "D2", "TX/D1", "RX/D0"]
             },
             {
-                "x": 73.7,
-                "y": 137.5,
-                "labels": [" ", " ", "RESET", "3.3V", "V-USB", "GND1", "GND2", "VIN"]
+                "x": 147.55630353559405,
+                "y": 277.17711508873947,
+                "labels": [" ", "IOREF", "RESET", "3.3V", "5V", "GND1", "GND2", "VIN"]
             },
             {
-                "x": 119.3,
-                "y": 137.5,
+                "x": 236.509741585078,
+                "y": 277.17711508873947,
                 "labels": ["A0", "A1", "A2", "A3", "A4", "A5"]
             }
         ],
-        "leds": [{
-            "x": 334.6,
-            "y": 98.1,
-            "h": 7,
-            "w": 17,
-            "color": "#FF1E1E",
-            "label": "LED"
+        "leds": [
+            {
+              "x": 480,
+              "y": 293,
+              "w": 7,
+              "h": 17,
+              "color": "#1E1EFF",
+              "label": "LED_BLE"
+            },
+            {
+              "x": 102,
+              "y": 263,
+              "w": 17,
+              "h": 7,
+              "color": "#1EFF1E",
+              "label": "LED_WIFI"
+            },
+            {
+              "x": 369,
+              "y": 110,
+              "h": 7,
+              "w": 17,
+              "color": "#1EFF1E",
+              "label": "LED2"
+            },
+            {
+              "x": 332,
+              "y": 110,
+              "h": 7,
+              "w": 17,
+              "color": "#1EFF1E",
+              "label": "LED"
+            }
+          ],
+          "reset": {
+            "x": 43.3,
+            "y": 243.8,
+            "w": 9.7,
+            "h": 9.7
+          }
         },
-        {
-            "x": 372.6,
-            "y": 98.1,
-            "h": 7,
-            "w": 17,
-            "color": "#FF1E1E",
-            "label": "LED2"
-        } ],
-        "buttons":[
-            
-        ]
-    },
     "gpioPinBlocks": [
         ["SCL", "SDA", "~D13", "~D12", "~D11", "~D10", "~D9", "~D8"],
         ["D7", "~D6", "~D5", "~D4", "~D3", "D2", "TX/D1", "RX/D0"],
@@ -72,12 +94,14 @@
         "D10": "~D10",
         "D11": "~D11",
         "D12": "~D12",
-        "D13": "~D13"
+        "D13": "~D13",
+        "D14": "SDA",
+        "D15": "SCL"
     },
     "spiPins": {
-        "MOSI": "MOSI",
-        "MISO": "MISO",
-        "SCK": "SCK"
+        "MOSI": "~D11",
+        "MISO": "~D12",
+        "SCK": "~D13"
     },
     "i2cPins": {
         "SDA": "SDA",

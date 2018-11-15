@@ -42,4 +42,5 @@ namespace config {
     export const PIN_ACCELEROMETER_SDA = DAL.PB_11; 
     
     export const PIN_BTN_USER = DAL.PC_13;
+    export const PIN_RESET = DAL.NO_CONN;
 }
