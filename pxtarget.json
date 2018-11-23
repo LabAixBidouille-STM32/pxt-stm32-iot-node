@@ -13,17 +13,32 @@
         "libs/buttons",
         "libs/servo",
         "libs/thermometer",
-        "libs/tests"
+        "libs/tests",
+	"libs/accelerometer",
     ],
+    "serial": {
+        "useHF2": false,
+        "useEditor": true,
+        "log": true,
+        "editorTheme": {
+            "graphBackground": "#d9d9d9",
+            "lineColors": [
+                "#CC2936",
+                "#FFC914",
+                "#2EB7ED",
+                "#FB48C7",
+                "#08415C",
+                "#C200C0"
+            ]
+        }
+    },
     "simulator": {
         "autoRun": true,
         "streams": false,
         "aspectRatio": 1.0,
         "parts": true,
         "partsAspectRatio": 0.69,
-        "instructions": true,
-        "dynamicBoardDefinition": true,
-        "debugger": true
+        "dynamicBoardDefinition": true
     },
     "cloud": {
         "workspace": false,
@@ -33,9 +48,6 @@
         "importing": true,
         "preferredPackages": [],
         "githubPackages": true
-    },
-    "serial": {
-        "useHF2": false
     },
     "compile": {
         "isNative": true,
@@ -104,19 +116,8 @@
         "driveDisplayName": "DIS_L4IOT",
         "showHomeScreen": true,
         "homeScreenHero": "./static/hero.svg",
+        "debugger": true,
         "print": true,
-        "experiments": [
-            "greenScreen",
-            "print",
-            "allowPackageExtensions",
-            "instructions",
-            "debugger",
-            "bluetoothUartConsole",
-            "bluetoothPartialFlashing"
-        ],
-        "bluetoothUartFilters": [{
-            "namePrefix": "BBC micro:bit"
-        }],
         "chooseBoardOnNewProject": true,
         "lightToc": true,
         "instructions": true,
@@ -151,19 +152,17 @@
         "invertedMonaco": true,
         "monacoToolbox": true,
         "highContrast": true,
-        "greenScreen": false,
+        "greenScreen": true,
         "simAnimationEnter": "fly right in",
         "simAnimationExit": "fly right out",
         "hasAudio": true,
+        "usbDocs": "/device/usb",
         "disableBlockIcons": true,
         "socialOptions": {
             "twitterHandle": "labaixbidouille",
             "orgTwitterHandle": "MSMakeCode",
             "hashtags": "MakeCode"
         },
-        "allowPackageExtensions": true,
-        "extendEditor": true,
-        "crowdinProject": "kindscript",
         "blocklyOptions": {
             "grid": {
                 "spacing": 20,
@@ -186,6 +185,9 @@
             "functions": "#005a9e",
             "arrays": "#8A1C7C"
         },
+        "allowPackageExtensions": true,
+        "extendEditor": true,
+        "crowdinProject": "kindscript",
         "selectLanguage": true,
                 
         "availableLocales": [
