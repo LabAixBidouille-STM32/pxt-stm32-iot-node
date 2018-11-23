@@ -34,6 +34,9 @@
         "preferredPackages": [],
         "githubPackages": true
     },
+    "serial": {
+        "useHF2": false
+    },
     "compile": {
         "isNative": true,
         "useUF2": false,
@@ -101,6 +104,22 @@
         "driveDisplayName": "DIS_L4IOT",
         "showHomeScreen": true,
         "homeScreenHero": "./static/hero.svg",
+        "print": true,
+        "experiments": [
+            "greenScreen",
+            "print",
+            "allowPackageExtensions",
+            "instructions",
+            "debugger",
+            "bluetoothUartConsole",
+            "bluetoothPartialFlashing"
+        ],
+        "bluetoothUartFilters": [{
+            "namePrefix": "BBC micro:bit"
+        }],
+        "chooseBoardOnNewProject": true,
+        "lightToc": true,
+        "instructions": true,
         "docMenu": [
             {
                 "name": "About",
@@ -132,6 +151,7 @@
         "invertedMonaco": true,
         "monacoToolbox": true,
         "highContrast": true,
+        "greenScreen": false,
         "simAnimationEnter": "fly right in",
         "simAnimationExit": "fly right out",
         "hasAudio": true,
