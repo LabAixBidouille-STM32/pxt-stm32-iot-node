@@ -13,11 +13,14 @@
         "libs/buttons",
         "libs/servo",
         "libs/thermometer",
+        "libs/accelerometer",
         "libs/tests",
-	"libs/accelerometer",
+        "libs/storage",
+        "libs/serial",
+        "libs/datalogger"
     ],
     "serial": {
-        "useHF2": false,
+        "useHF2": true,
         "useEditor": true,
         "log": true,
         "editorTheme": {
