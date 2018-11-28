@@ -88,7 +88,7 @@
         "codalTarget": {
             "name": "codal-stm32-iot-node",
             "url": "https://github.com/LabAixBidouille-STM32/codal-stm32-iot-node",
-            "branch": "v0.5.0",
+            "branch": "v0.6.1",
             "type": "git"
         },
         "codalBinary": "STM32_IOT_NODE",
