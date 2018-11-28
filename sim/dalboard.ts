@@ -35,7 +35,7 @@ namespace pxsim {
         touchButtonState: TouchButtonState;
         accelerometerState: AccelerometerState;
         thermometerState: AnalogSensorState;
-        thermometerUnitState: number;
+        thermometerUnitState: TemperatureUnit;
         storageState: StorageState;
 
 
@@ -97,6 +97,8 @@ namespace pxsim {
 
             this._neopixelState = {};
             this.storageState = new StorageState();
+            this.thermometerState = new AnalogSensorState(DAL.DEVICE_ID_THERMOMETER, -20, 50, 10, 30);
+            this.thermometerUnitState = TemperatureUnit.Celsius;
             this.bus.setNotify(DAL.DEVICE_ID_NOTIFY, DAL.DEVICE_ID_NOTIFY_ONE);
 
             // TODO we need this.buttonState set for pxtcore.getButtonByPin(), but
@@ -138,6 +140,7 @@ namespace pxsim {
 
             this.thermometerState = new AnalogSensorState(DAL.DEVICE_ID_THERMOMETER, -5, 50);
             this.thermometerUnitState = pxsim.TemperatureUnit.Celsius;
+            
             this.builtinParts["thermometer"] =  new ThermometerState(this.thermometerState, this.thermometerUnitState);
             this.builtinVisuals["thermometer"] = () => new visuals.ThermometerView();
              

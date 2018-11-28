@@ -13,6 +13,7 @@ namespace pxsim{
 namespace pxsim.visuals {
     export class ThermometerView implements IBoardPart<ThermometerState> {
         public element: SVGElement;
+        public svgEl: SVGSVGElement;
         public defs: SVGElement[];
         public style = BUTTON_PAIR_STYLE;
         private state: ThermometerState;
@@ -31,7 +32,7 @@ namespace pxsim.visuals {
             this.state = state;
             this.bus = bus;
             this.defs = [];
-            this.element = this.mkThermometer();
+            this.svgEl = svgEl;
             this.updateState();
             this.attachEvents();
         }
@@ -43,7 +44,21 @@ namespace pxsim.visuals {
         }
 
         public updateState() {
+            let state = this.state;
+            if (!state || !state.thermometerState || !state.thermometerState.sensorUsed) {
+                if (this.thermometer) {
+                    this.svgEl.removeChild(this.element);
+                    this.thermometer = null;
+                }
+            } else if (state && state.thermometerState && state.thermometerState.sensorUsed) {
+                this.mkThermometer();
+                this.svgEl.appendChild(this.element);
+                this.updateTemperature();
+            }
+        }
 
+        getElement() {
+            return this.element;
         }
 
         public updateTheme() {
@@ -53,29 +68,32 @@ namespace pxsim.visuals {
         }
 
         private mkThermometer() {
-            let defs = <SVGDefsElement>svg.child(this.element, "defs", {});
+            let svgEl = this.svgEl;
+            let defs = <SVGDefsElement>svg.child(svgEl, "defs", {});
             let g = <SVGGElement>svg.elt("g");
 
             if (!this.thermometer) {
                 let gid = "gradient-thermometer";
                 this.thermometerGradient = svg.linearGradient(defs, gid);
+                let xBase = 0;
+                let yBase = 3;
                 this.thermometer = <SVGRectElement>svg.child(g, "rect", {
                     class: "sim-thermometer no-drag",
-                    x: 170,
-                    y: 3,
-                    width: 7,
-                    height: 32,
-                    rx: 2, ry: 2,
+                    x: xBase,
+                    y: yBase,
+                    width: 10,
+                    height: 64,
+                    rx: 4, ry: 4,
                     fill: `url(#${gid})`
                 });
-                this.thermometerText = svg.child(g, "text", { class: 'sim-text', x: 148, y: 10 }) as SVGTextElement;
+                this.thermometerText = svg.child(g, "text", { class: 'sim-text', x: xBase + 20, y: yBase + 20 }) as SVGTextElement;
                 this.updateTheme();
 
-                let pt = this.element.ownerSVGElement.createSVGPoint();
+                let pt = svgEl.createSVGPoint();
                 svg.buttonEvents(this.thermometer,
                     // move
                     (ev) => {
-                        let cur = svg.cursorPoint(pt, this.element.ownerSVGElement, ev);
+                        let cur = svg.cursorPoint(pt, svgEl, ev);
                         let t = Math.max(0, Math.min(1, (35 - cur.y) / 30))
                         this.state.thermometerState.setLevel(Math.floor(ThermometerView.tmin + t * (ThermometerView.tmax - ThermometerView.tmin)));
                         this.updateTemperature();
@@ -110,8 +128,7 @@ namespace pxsim.visuals {
                 this.thermometer.setAttribute("aria-valuemax", ThermometerView.tmax.toString());
                 this.thermometer.setAttribute("aria-orientation", "vertical");
             }
-
-            return this.thermometer;
+            this.element = g;
         }
 
         private attachEvents() {
@@ -119,8 +136,9 @@ namespace pxsim.visuals {
 
         private updateTemperature() {
             let state = this.state;
-            if (!state || !state.thermometerState || !state.thermometerState.sensorUsed) return;
-
+            if (!state || !state.thermometerState || !state.thermometerState.sensorUsed)
+                return;
+            
             let t = Math.max(ThermometerView.tmin, Math.min(ThermometerView.tmax, state.thermometerState.getLevel()))
             let per = Math.floor((state.thermometerState.getLevel() - ThermometerView.tmin) / (ThermometerView.tmax - ThermometerView.tmin) * 100)
             svg.setGradientValue(this.thermometerGradient, 100 - per + "%");

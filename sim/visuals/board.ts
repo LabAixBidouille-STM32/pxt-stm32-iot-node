@@ -1,3 +1,5 @@
+/// <reference path="./thermometer.ts"/>
+
 namespace pxsim.visuals {
     const svg = pxsim.svg;
 
@@ -36,8 +38,33 @@ namespace pxsim.visuals {
     stroke: #404040;
     fill: #FFA500;
 }
-`
+.sim-thermometer {
+    stroke:#aaa;
+    stroke-width: 1px;
+}
 
+.sim-text {
+    font-family:"Lucida Console", Monaco, monospace;
+    font-size:16px;
+    fill:#fff;
+    pointer-events: none; user-select: none;
+}
+
+*:focus {
+    outline: none;
+}
+.sim-button-outer:focus,
+.sim-slide-switch:focus,
+.sim-pin:focus,
+.sim-thermometer:focus,
+.sim-button-group:focus .sim-button-outer,
+.sim-light-level-button:focus,
+.sim-sound-level-button:focus {
+    stroke: #4D90FE;
+    stroke-width: 2px !important;
+ }
+
+`
     export interface IBoardTheme {
         accent?: string;
         display?: string;
@@ -116,6 +143,7 @@ namespace pxsim.visuals {
         private onBoardNeopixel: BoardNeopixel;
         private onBoardReset: BoardButton;
         private onBoardUser: BoardButton;
+        private onBoardThermometer: pxsim.visuals.ThermometerView;
 
         constructor(public props: MetroBoardProps) {
             super(props);
@@ -144,6 +172,8 @@ namespace pxsim.visuals {
             this.onBoardUser = new BoardButtonUser(43.3, 173.8, props.visualDef.reset.h);
             el.appendChild(this.onBoardUser.getElement());
 
+            this.onBoardThermometer = new ThermometerView();
+
 
             if (props && props.theme)
                 this.updateTheme();
@@ -153,6 +183,9 @@ namespace pxsim.visuals {
                 this.board.updateSubscribers.push(() => this.updateState());
                 this.updateState();
             }
+
+            this.onBoardThermometer.init(this.board.bus, new ThermometerState(this.board.thermometerState, this.board.thermometerUnitState), el, null);
+            //el.appendChild(this.onBoardThermometer.getElement());
         }
 
         public updateTheme() {
@@ -171,6 +204,7 @@ namespace pxsim.visuals {
                 }
             }
             this.onBoardReset.updateState();
+            this.onBoardThermometer.updateState();
         }
 
         private addDefs(el: SVGElement) {
