@@ -2,18 +2,21 @@
 #define __PXT_PLATFORM_H
 
 #include "Image.h"
+#include "MultiButton.h"
 #include "CodalCompat.h"
 #include "stm32l4xxSPI.h"
 #include "stm32l4xxI2C.h"
 #include "stm32l4xxPin.h"
 #include "stm32l4xxTimer.h"
-#include "MultiButton.h"
-#define PAGE_SIZE 1024
+
+#include "pinmap.h"
+
+#define PAGE_SIZE 1024 // not really
 
 #define DEV_NUM_PINS 100
 
-#define DEV_PWM_PINS 0x0000ffffffffULL // all pins are PWM pins it seems
-#define DEV_AIN_PINS 0x0000f000001fULL
+#define DEV_PWM_PINS 0b111100000011100111111110111000111111101111ULL
+#define DEV_AIN_PINS 0b000011111100000000000000110000000011111111ULL
 
 // Codal doesn't yet distinguish between PWM and AIN
 #define DEV_ANALOG_PINS (DEV_PWM_PINS | DEV_AIN_PINS)
@@ -24,6 +27,8 @@
 #define CODAL_PIN codal::STM32L4xxPin
 #define CODAL_TIMER codal::STM32L4xxTimer
 #define CODAL_SERIAL codal::STM32L4xxSerial
+
+#define PERF_NOW() (TIM5->CNT)
 
 #define IMAGE_BITS 4
 /* 
