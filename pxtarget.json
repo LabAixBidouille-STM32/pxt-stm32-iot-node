@@ -11,13 +11,8 @@
         "libs/core",
         "libs/stm32-iot-node",
         "libs/buttons",
-        "libs/servo",
         "libs/thermometer",
-        "libs/accelerometer",
-        "libs/tests",
-        "libs/storage",
-        "libs/serial",
-        "libs/datalogger"
+        "libs/tests"
     ],
     "serial": {
         "useHF2": true,
