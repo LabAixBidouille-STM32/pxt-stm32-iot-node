@@ -10,7 +10,7 @@ The ``||input:on temperature||`` block stands alone, and doesn't go inside the `
 
 ## Step 3 @fullscreen
 
-We will make the turn on LED1 when the Temperature is High and LED2 when the temperature is lower. First we need to grab the ``||input:on temperature||`` block, and drag it into the staging area. It is located under the INPUT tab.
+We will make the turn on LED when the Temperature is High and LED2 when the temperature is lower. First we need to grab the ``||input:on temperature||`` block, and drag it into the staging area. It is located under the INPUT tab.
 
 ## Step 4 @fullscreen
 
@@ -36,4 +36,4 @@ One thing you may have noticed, when the virtual temperature triggers our LED, i
 
 ## Step 9 @fullscreen
 
-Now, go back to the temperature bar in our simulator. Slide the bar up and down to change the temperature. You should notice that temperatures above 15 Celsius, turn the Light Bulb red. Temperatures below 15 Celsius turn the Light Bulb blue. You can easily change the parameter at the end of the ``||input:on temperature||`` block to use either Celsius or Fahrenheit.
+Now, go back to the temperature bar in our simulator. Slide the bar up and down to change the temperature. You should notice that temperatures above 15 Celsius, turn the LED on. Temperatures below 15 Celsius turn the LED2 on. You can easily change the parameter at the end of the ``||input:on temperature||`` block to use either Celsius or Fahrenheit.
