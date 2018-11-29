@@ -116,7 +116,7 @@
         "homeScreenHero": "./static/hero.svg",
         "debugger": true,
         "print": true,
-        "chooseBoardOnNewProject": true,
+        "chooseBoardOnNewProject": false,
         "lightToc": true,
         "instructions": true,
         "docMenu": [

@@ -19,8 +19,6 @@ Step by step guide to coding your @boardname@.
   "cardType": "tutorial",
   "label": "Temperature Sensor",
   "labelClass": "pink ribbon large",
-  "url":"/tutorials/temperature",
-  "imageUrl":"/static/cp/projects/thumb/temperature.jpg"
-  
+  "url":"/tutorials/temperature"
 }]
 ```

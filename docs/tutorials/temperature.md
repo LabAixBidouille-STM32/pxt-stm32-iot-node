@@ -2,11 +2,11 @@
 
 ## Step 1 @unplugged
 
-The @Board is equipped with an onboard temperature sensor. We can use this sensor to trigger an action when the temperature reaches a certain level. We will use the ``||input:on temperature||`` block in our program to achieve this.
+The @boardname@ is equipped with an onboard temperature sensor. We can use this sensor to trigger an action when the temperature reaches a certain level. We will use the ``||input:on temperature||`` block in our program to achieve this.
 
 ## Step 2 @fullscreen
 
-The ``||input:on temperature||`` block stands alone, and doesn't go inside the ``||loops:on start||`` or the ``||loops:forever||`` blocks. This is because our @Board will always be checking the temperature sensor in the background, while our program is running.
+The ``||input:on temperature||`` block stands alone, and doesn't go inside the ``||loops:on start||`` or the ``||loops:forever||`` blocks. This is because our @boardname@ will always be checking the temperature sensor in the background, while our program is running.
 
 ## Step 3 @fullscreen
 
@@ -14,7 +14,7 @@ We will make the turn on LED1 when the Temperature is High and LED2 when the tem
 
 ## Step 4 @fullscreen
 
-Next we will add ``||input:digital write||`` block to our ``||input:on temperature||`` block. Grab the ``||input:digital write||`` block and drag it inside our ``||input:on temperature||`` block. We can leave the parameters alone for the moment.
+Next we will add ``||pins:digital write||`` block to our ``||input:on temperature||`` block. Grab the ``||pins:digital write||`` block and drag it inside our ``||input:on temperature||`` block. We can leave the parameters alone for the moment.
 
 ## Step 5 @fullscreen
 
@@ -32,7 +32,7 @@ One thing you may have noticed, when the virtual temperature triggers our LED, i
 
 ## Step 8 @fullscreen
 
- We can fix this by changing the parameters inside the ``||input:on temperature||`` block. Let's change the click down box inside our ``||input:on temperature||`` block. Let's change the value from hot to cold. Let's also drag in a ``||input:digital write||`` block and change the state of the LED. This will UNSHADE our block and allow us to use it in our program.
+ We can fix this by changing the parameters inside the ``||input:on temperature||`` block. Let's change the click down box inside our ``||input:on temperature||`` block. Let's change the value from hot to cold. Let's also drag in a ``||pins:digital write||`` block and change the state of the LED. This will UNSHADE our block and allow us to use it in our program.
 
 ## Step 9 @fullscreen
 
