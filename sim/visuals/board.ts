@@ -193,7 +193,7 @@ namespace pxsim.visuals {
             }
 
             this.onBoardThermometer.init(this.board.bus, new ThermometerState(this.board.thermometerState, this.board.thermometerUnitState), el, null);
-            this.onBoardHumidity.init(this.board.bus, new HumidityState(this.board.humidityState, this.board.humidityUnitState), el, null);
+            this.onBoardHumidity.init(this.board.bus, new HumidityState(this.board.humidityState), el, null);
 
             //el.appendChild(this.onBoardThermometer.getElement());
         }
