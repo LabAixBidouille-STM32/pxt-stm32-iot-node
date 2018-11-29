@@ -12,6 +12,7 @@
         "libs/stm32-iot-node",
         "libs/buttons",
         "libs/thermometer",
+        "libs/humidity",
         "libs/tests"
     ],
     "serial": {

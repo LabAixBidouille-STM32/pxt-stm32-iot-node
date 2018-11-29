@@ -1,5 +1,7 @@
 /// <reference path="../../node_modules/pxt-core/built/pxtsim.d.ts"/>
+/// <reference path="../../built/common-sim.d.ts"/>
 /// <reference path="../../libs/core/dal.d.ts"/>
+/// <reference path="../dalboard.ts"/>
 
 namespace pxsim.visuals {
     export class ButtonView implements IBoardPart<CommonButtonState> {

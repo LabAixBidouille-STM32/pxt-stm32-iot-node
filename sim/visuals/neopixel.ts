@@ -1,6 +1,8 @@
 /// <reference path="../../node_modules/pxt-core/built/pxtsim.d.ts"/>
+/// <reference path="../../built/common-sim.d.ts"/>
 /// <reference path="../../libs/core/dal.d.ts"/>
 /// <reference path="../../libs/core/enums.d.ts"/>
+/// <reference path="../dalboard.ts"/>
 
 namespace pxsim.visuals {
     const PIXEL_SPACING = PIN_DIST * 3;
@@ -128,7 +130,7 @@ namespace pxsim.visuals {
                     this.canvas.appendChild(pixel.el);
                 }
                 let color = colors[i];
-                pixel.setRgb(color as RGBW);
+                pixel.setRgb(color as [number, number, number]);
             }
 
             //show the canvas if it's hidden

@@ -1,0 +1,19 @@
+{
+    "name": "humidity",
+    "description": "A humidy sensor driver",
+    "files": [
+        "README.md",
+        "humidity.cpp",
+        "target_humidity.h",
+        "shims.d.ts",
+        "enums.d.ts",
+        "ns.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "dependencies": {
+        "core": "file:../core"
+    }
+}

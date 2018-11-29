@@ -20,6 +20,7 @@ namespace pxsim {
         LightBoard,
         CapTouchBoard,
         TemperatureBoard,
+        HumidityBoard,
         AccelerometerBoard,
         PixelBoard,
         StorageBoard {
@@ -32,10 +33,16 @@ namespace pxsim {
         audioState: AudioState;
         neopixelPin: Pin;
         pixelPin: Pin;
+        
         touchButtonState: TouchButtonState;
+        
         accelerometerState: AccelerometerState;
+        
         thermometerState: AnalogSensorState;
         thermometerUnitState: TemperatureUnit;
+
+        humidityState: AnalogSensorState;
+        
         storageState: StorageState;
 
 
@@ -97,8 +104,12 @@ namespace pxsim {
 
             this._neopixelState = {};
             this.storageState = new StorageState();
+
             this.thermometerState = new AnalogSensorState(DAL.DEVICE_ID_THERMOMETER, -20, 50, 10, 30);
             this.thermometerUnitState = TemperatureUnit.Celsius;
+
+            this.humidityState = new AnalogSensorState(DAL.DEVICE_ID_HUMIDITY, 0, 100, 10, 90);
+
             this.bus.setNotify(DAL.DEVICE_ID_NOTIFY, DAL.DEVICE_ID_NOTIFY_ONE);
 
             // TODO we need this.buttonState set for pxtcore.getButtonByPin(), but
@@ -137,12 +148,12 @@ namespace pxsim {
 
             this.builtinVisuals["photocell"] = () => new visuals.PhotoCellView(parsePinString);
             this.builtinPartVisuals["photocell"] = (xy: visuals.Coord) => visuals.mkPhotoCellPart(xy);
-
-            this.thermometerState = new AnalogSensorState(DAL.DEVICE_ID_THERMOMETER, -5, 50);
-            this.thermometerUnitState = pxsim.TemperatureUnit.Celsius;
             
             this.builtinParts["thermometer"] =  new ThermometerState(this.thermometerState, this.thermometerUnitState);
             this.builtinVisuals["thermometer"] = () => new visuals.ThermometerView();
+
+            this.builtinParts["humidity"] =  new HumidityState(this.humidityState);
+            this.builtinVisuals["humidity"] = () => new visuals.HumidityView();
              
 
         }

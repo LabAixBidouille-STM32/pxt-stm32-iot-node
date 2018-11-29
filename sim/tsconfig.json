@@ -7,6 +7,8 @@
         "out": "../built/sim.js",
         "rootDir": ".",
         "newLine": "LF",
+        "types": ["bluebird"],
+        "typeRoots": ["../node_modules/@types"],
         "sourceMap": true
     }
 }

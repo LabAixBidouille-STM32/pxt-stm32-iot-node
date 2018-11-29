@@ -1,4 +1,10 @@
+
+/// <reference path="../../node_modules/pxt-core/built/pxtsim.d.ts"/>
+/// <reference path="../../built/common-sim.d.ts"/>
+/// <reference path="../../libs/core/dal.d.ts"/>
+/// <reference path="../dalboard.ts"/>
 /// <reference path="./thermometer.ts"/>
+
 
 namespace pxsim.visuals {
     const svg = pxsim.svg;
@@ -144,6 +150,7 @@ namespace pxsim.visuals {
         private onBoardReset: BoardButton;
         private onBoardUser: BoardButton;
         private onBoardThermometer: pxsim.visuals.ThermometerView;
+        private onBoardHumidity: pxsim.visuals.HumidityView;
 
         constructor(public props: MetroBoardProps) {
             super(props);
@@ -173,6 +180,7 @@ namespace pxsim.visuals {
             el.appendChild(this.onBoardUser.getElement());
 
             this.onBoardThermometer = new ThermometerView();
+            this.onBoardHumidity = new HumidityView();
 
 
             if (props && props.theme)
@@ -185,6 +193,8 @@ namespace pxsim.visuals {
             }
 
             this.onBoardThermometer.init(this.board.bus, new ThermometerState(this.board.thermometerState, this.board.thermometerUnitState), el, null);
+            this.onBoardHumidity.init(this.board.bus, new HumidityState(this.board.humidityState, this.board.humidityUnitState), el, null);
+
             //el.appendChild(this.onBoardThermometer.getElement());
         }
 
@@ -205,6 +215,7 @@ namespace pxsim.visuals {
             }
             this.onBoardReset.updateState();
             this.onBoardThermometer.updateState();
+            this.onBoardHumidity.updateState();
         }
 
         private addDefs(el: SVGElement) {
