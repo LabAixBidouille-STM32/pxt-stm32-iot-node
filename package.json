@@ -1,6 +1,6 @@
 {
   "name": "pxt-stm32-iot-node",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "ST IoT-Node for Microsoft MakeCode",
   "public": true,
   "keywords": [
