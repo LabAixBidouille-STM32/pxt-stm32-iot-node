@@ -13,6 +13,7 @@
         "libs/buttons",
         "libs/thermometer",
         "libs/humidity",
+        "libs/pressure",
         "libs/tests"
     ],
     "serial": {

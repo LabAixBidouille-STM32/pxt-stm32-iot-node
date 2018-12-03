@@ -3,8 +3,6 @@
 /// <reference path="../../built/common-sim.d.ts"/>
 /// <reference path="../../libs/core/dal.d.ts"/>
 /// <reference path="../dalboard.ts"/>
-/// <reference path="./thermometer.ts"/>
-
 
 namespace pxsim.visuals {
     const svg = pxsim.svg;
@@ -147,10 +145,11 @@ namespace pxsim.visuals {
 
         private onBoardLeds: BoardLed[];
         private onBoardNeopixel: BoardNeopixel;
-        private onBoardReset: BoardButton;
-        private onBoardUser: BoardButton;
+        private onBoardButtonReset: BoardButton;
+        private onBoardButtonUser: BoardButton;
         private onBoardThermometer: pxsim.visuals.ThermometerView;
         private onBoardHumidity: pxsim.visuals.HumidityView;
+        private onBoardPressure: pxsim.visuals.PressureView;
 
         constructor(public props: MetroBoardProps) {
             super(props);
@@ -172,15 +171,16 @@ namespace pxsim.visuals {
             }
 
             if (props.visualDef.reset) {
-                this.onBoardReset = new BoardButtonReset(props.visualDef.reset.x, props.visualDef.reset.y, props.visualDef.reset.h);
-                el.appendChild(this.onBoardReset.getElement());
+                this.onBoardButtonReset = new BoardButtonReset(props.visualDef.reset.x, props.visualDef.reset.y, props.visualDef.reset.h);
+                el.appendChild(this.onBoardButtonReset.getElement());
             }
 
-            this.onBoardUser = new BoardButtonUser(43.3, 173.8, props.visualDef.reset.h);
-            el.appendChild(this.onBoardUser.getElement());
+            this.onBoardButtonUser = new BoardButtonUser(43.3, 173.8, props.visualDef.reset.h);
+            el.appendChild(this.onBoardButtonUser.getElement());
 
             this.onBoardThermometer = new ThermometerView();
             this.onBoardHumidity = new HumidityView();
+            this.onBoardPressure = new PressureView();
 
 
             if (props && props.theme)
@@ -194,8 +194,8 @@ namespace pxsim.visuals {
 
             this.onBoardThermometer.init(this.board.bus, new ThermometerState(this.board.thermometerState, this.board.thermometerUnitState), el, null);
             this.onBoardHumidity.init(this.board.bus, new HumidityState(this.board.humidityState), el, null);
+            this.onBoardPressure.init(this.board.bus, new PressureState(this.board.pressureState, this.board.pressureUnitState), el, null);
 
-            //el.appendChild(this.onBoardThermometer.getElement());
         }
 
         public updateTheme() {
@@ -213,9 +213,10 @@ namespace pxsim.visuals {
                     this.onBoardNeopixel.setColor(rgb as any);
                 }
             }
-            this.onBoardReset.updateState();
+            this.onBoardButtonReset.updateState();
             this.onBoardThermometer.updateState();
             this.onBoardHumidity.updateState();
+            this.onBoardPressure.updateState();
         }
 
         private addDefs(el: SVGElement) {
@@ -229,115 +230,6 @@ namespace pxsim.visuals {
 
             const style = svg.child(el, "style", {});
             style.textContent = STYLE;
-        }
-    }
-
-    class BoardButton extends CommonButton {
-        private element: SVGElement;
-        constructor(pinId: number, x: number, y: number, r: number, styleClass: string, label: string) {
-            
-            const txtSize = PIN_DIST * 1.3;
-            const txtXOff = PIN_DIST / 7;
-            const txtYOff = PIN_DIST / 10;
-
-            super(pinId);
-
-            let btng = <SVGGElement>svg.elt("g");
-            let btn = svg.elt("circle", { cx: x, cy: y, r, class: styleClass }) as SVGCircleElement
-            btng.appendChild(btn);
-            this.element = btng;
-        }
-
-        getElement() {
-            return this.element;
-        }
-
-        updateState() {
-        }
-    }
-
-    class BoardButtonReset extends BoardButton {
-        constructor(x: number, y: number, r: number) {
-            let pin = pinByName("RESET")
-            super(pin.id, x, y, r, "sim-reset-btn", "BUTTON_RESET");
-            this.getElement().addEventListener("click", () => pxsim.control.reset(), false);
-        }
-    }
-
-    class BoardButtonUser extends BoardButton {
-        constructor(x: number, y: number, r: number) {
-            let pin = pinByName("BTN_USER");
-            super(pin.id, x, y, r, "sim-user-btn", "BUTTON_USER");
-            this.attachEvents();
-        }
-        private attachEvents() {
-            pointerEvents.down.forEach(evid => this.getElement().addEventListener(evid, ev => {
-                    this.setPressed(true);
-                }));
-            this.getElement().addEventListener(pointerEvents.leave, ev => {
-                this.setPressed(false);
-            })
-            this.getElement().addEventListener(pointerEvents.up, ev => {
-                this.setPressed(false);
-            })
-        }
-    }
-
-    class BoardLed {
-        private element: SVGElement;
-        private colorOff = "#aaa"
-
-        constructor(x: number, y: number, private colorOn: string, private pin: Pin, w: number, h: number) {
-            this.element = svg.elt("rect", { x, y, width: w, height: h, fill: this.colorOff });
-        }
-
-        getElement() {
-            return this.element;
-        }
-
-        updateTheme(colorOff: string, colorOn: string) {
-            if (colorOff) {
-                this.colorOff = colorOff;
-            }
-            if (colorOn) {
-                this.colorOn = colorOn;
-            }
-        }
-
-        updateState() {
-            if (this.pin.value > 0) {
-                this.element.setAttribute("fill", this.colorOn)
-                svg.filter(this.element, `url(#neopixelglow)`);
-            }
-            else {
-                this.element.setAttribute("fill", this.colorOff)
-                svg.filter(this.element, null);
-            }
-        }
-    }
-
-    class BoardNeopixel {
-        private element: SVGCircleElement;
-
-        constructor(x: number, y: number, r: number) {
-            this.element = svg.elt("circle", { cx: x, cy: y, r }) as SVGCircleElement
-        }
-
-        getElement() {
-            return this.element;
-        }
-
-        setColor(rgb: [number, number, number]) {
-            const hsl = visuals.rgbToHsl(rgb);
-            let [h, s, l] = hsl;
-            const lx = Math.max(l * 1.3, 85);
-
-            // at least 10% luminosity
-            l = l * 90 / 100 + 10;
-            this.element.style.stroke = `hsl(${h}, ${s}%, ${Math.min(l * 3, 75)}%)`
-            this.element.style.strokeWidth = "1.5";
-            svg.fill(this.element, `hsl(${h}, ${s}%, ${lx}%)`);
-            svg.filter(this.element, `url(#neopixelglow)`);
         }
     }
 }

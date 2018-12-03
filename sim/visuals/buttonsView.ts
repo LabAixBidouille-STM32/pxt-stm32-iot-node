@@ -89,4 +89,56 @@ namespace pxsim.visuals {
             })
         }
     }
+
+    export class BoardButton extends CommonButton {
+        private element: SVGElement;
+        constructor(pinId: number, x: number, y: number, r: number, styleClass: string, label: string) {
+            
+            const txtSize = PIN_DIST * 1.3;
+            const txtXOff = PIN_DIST / 7;
+            const txtYOff = PIN_DIST / 10;
+
+            super(pinId);
+
+            let btng = <SVGGElement>svg.elt("g");
+            let btn = svg.elt("circle", { cx: x, cy: y, r, class: styleClass }) as SVGCircleElement
+            btng.appendChild(btn);
+            this.element = btng;
+        }
+
+        getElement() {
+            return this.element;
+        }
+
+        updateState() {
+        }
+    }
+
+    export class BoardButtonReset extends BoardButton {
+        constructor(x: number, y: number, r: number) {
+            let pin = pinByName("RESET")
+            super(pin.id, x, y, r, "sim-reset-btn", "BUTTON_RESET");
+            this.getElement().addEventListener("click", () => pxsim.control.reset(), false);
+        }
+    }
+
+    export class BoardButtonUser extends BoardButton {
+        constructor(x: number, y: number, r: number) {
+            let pin = pinByName("BTN_USER");
+            super(pin.id, x, y, r, "sim-user-btn", "BUTTON_USER");
+            this.attachEvents();
+        }
+        private attachEvents() {
+            pointerEvents.down.forEach(evid => this.getElement().addEventListener(evid, ev => {
+                    this.setPressed(true);
+                }));
+            this.getElement().addEventListener(pointerEvents.leave, ev => {
+                this.setPressed(false);
+            })
+            this.getElement().addEventListener(pointerEvents.up, ev => {
+                this.setPressed(false);
+            })
+        }
+    }
+
 }

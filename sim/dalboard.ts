@@ -21,6 +21,7 @@ namespace pxsim {
         CapTouchBoard,
         TemperatureBoard,
         HumidityBoard,
+        PressureBoard,
         AccelerometerBoard,
         PixelBoard,
         StorageBoard {
@@ -42,7 +43,10 @@ namespace pxsim {
         thermometerUnitState: TemperatureUnit;
 
         humidityState: AnalogSensorState;
-        
+
+        pressureState: AnalogSensorState;
+        pressureUnitState: PressureUnit;
+
         storageState: StorageState;
 
 
@@ -110,6 +114,9 @@ namespace pxsim {
 
             this.humidityState = new AnalogSensorState(DAL.DEVICE_ID_HUMIDITY, 0, 100, 10, 90);
 
+            this.pressureState = new AnalogSensorState(DAL.DEVICE_ID_PRESSURE, 980, 1050, 1000, 1030);
+            this.pressureUnitState = PressureUnit.HectoPascal;
+
             this.bus.setNotify(DAL.DEVICE_ID_NOTIFY, DAL.DEVICE_ID_NOTIFY_ONE);
 
             // TODO we need this.buttonState set for pxtcore.getButtonByPin(), but
@@ -154,6 +161,9 @@ namespace pxsim {
 
             this.builtinParts["humidity"] =  new HumidityState(this.humidityState);
             this.builtinVisuals["humidity"] = () => new visuals.HumidityView();
+
+            this.builtinParts["pressure"] =  new PressureState(this.pressureState, this.pressureUnitState);
+            this.builtinVisuals["pressure"] = () => new visuals.HumidityView();
              
 
         }

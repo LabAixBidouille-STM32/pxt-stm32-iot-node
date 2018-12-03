@@ -28,7 +28,7 @@ void onHumidityConditionChanged(HumidityCondition condition, int humidity, Actio
     auto sensor = &getWHum()->sensor;
     sensor->updateSample();
 
-    float t = humidity;
+    float t = humidity*10.;
 
     if (condition == HumidityCondition::Dry)
         sensor->setLowThreshold(t);
@@ -45,7 +45,6 @@ void onHumidityConditionChanged(HumidityCondition condition, int humidity, Actio
 //% parts="humidity"
 //% weight=26
 int humidity() {
-    int value = getWHum()->sensor.getValue();
-    return value;
+    return (int) getWHum()->sensor.getValue()/10.;
 }
 }

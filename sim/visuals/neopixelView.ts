@@ -247,4 +247,29 @@ namespace pxsim.visuals {
         }
         public updateTheme(): void { }
     }
+
+    export class BoardNeopixel {
+        private element: SVGCircleElement;
+
+        constructor(x: number, y: number, r: number) {
+            this.element = svg.elt("circle", { cx: x, cy: y, r }) as SVGCircleElement
+        }
+
+        getElement() {
+            return this.element;
+        }
+
+        setColor(rgb: [number, number, number]) {
+            const hsl = visuals.rgbToHsl(rgb);
+            let [h, s, l] = hsl;
+            const lx = Math.max(l * 1.3, 85);
+
+            // at least 10% luminosity
+            l = l * 90 / 100 + 10;
+            this.element.style.stroke = `hsl(${h}, ${s}%, ${Math.min(l * 3, 75)}%)`
+            this.element.style.strokeWidth = "1.5";
+            svg.fill(this.element, `hsl(${h}, ${s}%, ${lx}%)`);
+            svg.filter(this.element, `url(#neopixelglow)`);
+        }
+    }
 }
