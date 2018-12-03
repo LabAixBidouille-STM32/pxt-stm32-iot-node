@@ -16,7 +16,8 @@
         "buttons": "file:../buttons",
         "thermometer" : "file:../thermometer",
         "humidity" : "file:../humidity",
-        "pressure" : "file:../pressure"
+        "pressure" : "file:../pressure",
+        "accelerometer" : "file:../accelerometer"
     },
     "public": true
 }

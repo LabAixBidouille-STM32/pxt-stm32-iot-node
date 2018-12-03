@@ -28,6 +28,9 @@
 #define CODAL_TIMER codal::STM32L4xxTimer
 #define CODAL_SERIAL codal::STM32L4xxSerial
 
+#define CODAL_ACCELEROMETER codal::STM32IotNodeAccelerometer
+#define CODAL_ACCELEROMETER_HEADER "STM32IotNodeAccelerometer.h"
+
 #define PERF_NOW() (TIM5->CNT)
 
 #define IMAGE_BITS 4
