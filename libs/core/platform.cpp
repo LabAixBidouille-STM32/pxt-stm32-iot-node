@@ -1,4 +1,5 @@
 #include "pxt.h"
+#include "stm32l4xxSimpleSerial.h"
 
 namespace pxt {
 
@@ -7,14 +8,15 @@ static void initRandomSeed() {
     seedRandom(seed);
 }
 
+static codal::SimpleSerial *serial;
+
 void platformSendSerial(const char *data, int len) {
-    /*
+    
     if (!serial) {
-        serial = new codal::_mbed::Serial(USBTX, NC);
-        serial->baud(9600);
+        serial = new STM32L4xxSimpleSerial(*LOOKUP_PIN(RX), *LOOKUP_PIN(TX)) ;
+        
     }
     serial->send((uint8_t*)data, len);
-    */
 }
 
 void platform_init() {

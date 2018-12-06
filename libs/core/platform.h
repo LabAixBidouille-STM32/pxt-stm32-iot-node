@@ -26,7 +26,7 @@
 #define CODAL_I2C codal::STM32L4xxI2C
 #define CODAL_PIN codal::STM32L4xxPin
 #define CODAL_TIMER codal::STM32L4xxTimer
-#define CODAL_SERIAL codal::STM32L4xxSerial
+#define CODAL_SERIAL codal::STM32L4xxSimpleSerial
 
 #define CODAL_ACCELEROMETER codal::STM32IotNodeAccelerometer
 #define CODAL_ACCELEROMETER_HEADER "STM32IotNodeAccelerometer.h"
