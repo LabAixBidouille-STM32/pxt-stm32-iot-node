@@ -22,8 +22,8 @@ SINGLETON(WPres);
 namespace input {
 
 /**
-* Run some code when the pressure changes from dry to wet, or from wet to dry.
-* @param condition the condition, wet or dry, the event triggers on
+* Run some code when the pressure changes from high to low, or from low to high.
+* @param condition the condition, low or high, the event triggers on
 * @param pressure the pressure at which this event happens, eg: 1013.25
 * @param unit the unit of the pressure
 */
@@ -45,7 +45,7 @@ void onPressureConditionChanged(PressureCondition condition, int pressure, Press
 }
 
 /**
- * Get the relative pressure in percent.
+ * Get the pressure.
  */
 //% help=input/pressure
 //% blockId=device_pressure block="pressure in %unit"
