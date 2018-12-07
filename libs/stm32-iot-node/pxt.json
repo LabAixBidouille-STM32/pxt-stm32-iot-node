@@ -17,7 +17,8 @@
         "thermometer" : "file:../thermometer",
         "humidity" : "file:../humidity",
         "pressure" : "file:../pressure",
-        "accelerometer" : "file:../accelerometer"
+        "accelerometer" : "file:../accelerometer",
+        "lcd" : "file:../lcd"
     },
     "public": true
 }

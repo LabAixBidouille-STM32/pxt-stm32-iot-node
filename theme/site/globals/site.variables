@@ -139,7 +139,7 @@
    Docs
 --------------------*/
 
-@avatarImageUrl: "../docs/static/avatar.png";
+@avatarImageUrl: "../docs/static/avatar.svg";
 @docsAvatarImageUrl: "../docs/static/avatar-inverted.svg";
 
 /*-------------------

@@ -23,6 +23,7 @@ namespace pxsim {
         HumidityBoard,
         PressureBoard,
         AccelerometerBoard,
+        LCDBoard,
         PixelBoard,
         StorageBoard {
         // state & update logic for component services
@@ -48,6 +49,8 @@ namespace pxsim {
         pressureUnitState: PressureUnit;
 
         storageState: StorageState;
+
+        lcdState: LCDState;
 
 
         constructor(public boardDefinition: BoardDefinition) {
@@ -117,33 +120,36 @@ namespace pxsim {
             this.pressureState = new AnalogSensorState(DAL.DEVICE_ID_PRESSURE, 980, 1050, 1000, 1030);
             this.pressureUnitState = PressureUnit.HectoPascal;
 
+            this.lcdState = new LCDState();
+
             this.bus.setNotify(DAL.DEVICE_ID_NOTIFY, DAL.DEVICE_ID_NOTIFY_ONE);
 
             // TODO we need this.buttonState set for pxtcore.getButtonByPin(), but
             // this should be probably merged with buttonpair somehow
-            this.builtinParts["pinbuttons"] = this.builtinParts["buttons"]
-                = this.buttonState = new CommonButtonState();
+            this.builtinParts["pinbuttons"] = this.builtinParts["buttons"] = this.buttonState = new CommonButtonState();
+            this.builtinVisuals["buttons"] = () => new visuals.ButtonView();
+            this.builtinPartVisuals["buttons"] = (xy: visuals.Coord) => visuals.mkBtnSvg(xy);
+
+
             this.builtinParts["touch"] = this.touchButtonState = new TouchButtonState(pinList);
 
             // components
             this.builtinParts["neopixel"] = (pin: Pin) => { return this.neopixelState(pin.id); } //this.neopixelState(this.neopixelPin.id);
+            this.builtinVisuals["neopixel"] = () => new visuals.NeoPixelView();
+            this.builtinPartVisuals["neopixel"] = (xy: visuals.Coord) => visuals.mkNeoPixelPart(xy);
+            
             this.builtinParts["audio"] = this.audioState = new AudioState();
             this.builtinParts["edgeconnector"] = this.edgeConnectorState = new EdgeConnectorState({
                 pins: pinList,
                 servos
             });
+
+            this.builtinParts["accelerometer"] = this.accelerometerState = new AccelerometerState(runtime);
+
             this.builtinParts["microservo"] = this.edgeConnectorState;
-
-            this.builtinParts["accelerometer"] = this.accelerometerState = new AccelerometerState(runtime);;
-
-            this.builtinVisuals["buttons"] = () => new visuals.ButtonView();
             this.builtinVisuals["microservo"] = () => new visuals.MicroServoView();
-            this.builtinVisuals["neopixel"] = () => new visuals.NeoPixelView();
-
-            this.builtinPartVisuals["buttons"] = (xy: visuals.Coord) => visuals.mkBtnSvg(xy);
-
             this.builtinPartVisuals["microservo"] = (xy: visuals.Coord) => visuals.mkMicroServoPart(xy);
-            this.builtinPartVisuals["neopixel"] = (xy: visuals.Coord) => visuals.mkNeoPixelPart(xy);
+            
 
             this.builtinParts["slideswitch"] = (pin: Pin) => new ToggleState(pin);
             this.builtinVisuals["slideswitch"] = () => new visuals.ToggleComponentVisual(parsePinString);
@@ -156,7 +162,7 @@ namespace pxsim {
             this.builtinVisuals["photocell"] = () => new visuals.PhotoCellView(parsePinString);
             this.builtinPartVisuals["photocell"] = (xy: visuals.Coord) => visuals.mkPhotoCellPart(xy);
             
-            this.builtinParts["thermometer"] =  new ThermometerState(this.thermometerState, this.thermometerUnitState);
+            this.builtinParts["thermometer"] = () => new ThermometerState(this.thermometerState, this.thermometerUnitState);
             this.builtinVisuals["thermometer"] = () => new visuals.ThermometerView();
 
             this.builtinParts["humidity"] =  new HumidityState(this.humidityState);
@@ -164,6 +170,10 @@ namespace pxsim {
 
             this.builtinParts["pressure"] =  new PressureState(this.pressureState, this.pressureUnitState);
             this.builtinVisuals["pressure"] = () => new visuals.HumidityView();
+
+            this.builtinParts["lcd"] =  this.lcdState;
+            this.builtinVisuals["lcd"] = () => new visuals.LCDView();
+            this.builtinPartVisuals["lcd"] = (xy: visuals.Coord) => visuals.mkLCDPart(xy);
              
 
         }

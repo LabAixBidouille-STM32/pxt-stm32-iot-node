@@ -1,0 +1,21 @@
+{
+    "name": "LCD",
+    "version": "0.0.1",
+    "description": "A LCD driver",
+    "files": [
+        "README.md",
+        "pxtparts.json",
+        "LCD.svg",
+        "LCD.cpp",
+        "target_lcd.h",
+        "shims.d.ts",
+        "ns.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "dependencies": {
+        "core": "file:../core"
+    }
+}

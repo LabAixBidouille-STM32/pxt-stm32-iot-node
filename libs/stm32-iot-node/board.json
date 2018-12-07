@@ -109,7 +109,7 @@
     },
     "groundPins": ["GND1", "GND0", "GND2"],
     "threeVoltPins": ["3.3V"],
-    "onboardComponents": ["accelerometer", "thermometer", "humidity"],
+    "onboardComponents": ["accelerometer", "thermometer", "humidity", "pressure"],
     "marginWhenBreadboarding": [
         0,
         0,
