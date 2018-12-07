@@ -1,6 +1,6 @@
 {
   "name": "pxt-stm32-iot-node",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "description": "ST IoT-Node for Microsoft MakeCode",
   "public": true,
   "keywords": [
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "pxt-common-packages": "5.1.29",
-    "pxt-core": "5.2.10"
+    "pxt-core": "5.2.12"
   },
   "scripts": {
     "start": "node node_modules/pxt-core/built/pxt.js serve --cloud --no-browser -h \"0.0.0.0\" -w 3233 -p 3232",
