@@ -17,6 +17,7 @@
         "libs/pressure",
         "libs/accelerometer",
         "libs/distance",
+        "libs/storage",
         "libs/jacdac",
         "libs/jacdac-drivers",
         "libs/tests"
