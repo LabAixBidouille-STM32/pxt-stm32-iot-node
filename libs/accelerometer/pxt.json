@@ -1,3 +1,11 @@
 {
+    "files": [
+        "shims.d.ts",
+        "enums.d.ts",
+        "accelerometer.cpp",
+        "target_accelerometer.h",
+        "target_compass.h",
+        "axis.h"
+    ],
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/accelerometer"
 }

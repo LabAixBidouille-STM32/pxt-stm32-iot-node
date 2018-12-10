@@ -36,7 +36,7 @@ declare namespace input {
     //% help=input/rotation
     //% blockId=device_get_rotation block="rotation (°)|%NAME"
     //% parts="accelerometer"
-    //% group="More" weight=38 shim=input::rotation
+    //% weight=38 shim=input::rotation
     function rotation(kind: Rotation): int32;
 
     /**
@@ -49,6 +49,24 @@ declare namespace input {
     //% parts="accelerometer"
     //% group="More" weight=15 blockGap=8 shim=input::setAccelerometerRange
     function setAccelerometerRange(range: AcceleratorRange): void;
+
+    /**
+     * Get the magnetic force value in ``micro-Teslas`` (``µT``). This function is not supported in the simulator.
+     * @param dimension TODO
+     */
+    //% help=input/magnetic-force weight=51
+    //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
+    //% parts="compass" shim=input::magneticForce
+    function magneticForce(dimension: Dimension): int32;
+
+    /**
+     * Get the current compass heading in degrees.
+     */
+    //% help=input/compass-heading
+    //% weight=56
+    //% blockId=device_heading block="compass heading (°)" blockGap=8
+    //% parts="compass" shim=input::compassHeading
+    function compassHeading(): int32;
 }
 
 // Auto-generated. Do not edit. Really.

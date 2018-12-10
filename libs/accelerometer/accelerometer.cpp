@@ -1,21 +1,10 @@
 #include "pxt.h"
+#include "target_accelerometer.h"
+#include "target_compass.h"
 #include "axis.h"
 #include "Pin.h"
 #include "I2C.h"
 #include "CoordinateSystem.h"
-
-#ifdef CODAL_ACCELEROMETER
-
-#ifdef CODAL_ACCELEROMETER_HEADER
-#include CODAL_ACCELEROMETER_HEADER
-#endif
-
-#else
-
-#include "LIS3DH.h"
-#define CODAL_ACCELEROMETER codal::LIS3DH
-
-#endif
 
 enum class Dimension {
     //% block=x
@@ -118,20 +107,8 @@ enum class Gesture {
 
 namespace pxt {
 
-// Wrapper classes
-class WAccel {
-    CoordinateSpace space;
-  public:
-    CODAL_ACCELEROMETER acc;
-    WAccel()
-        : space(ACC_SYSTEM, ACC_UPSIDEDOWN, ACC_ROTATION),
-          acc(space)
-    {
-        acc.init();        
-    }
-};
-
 SINGLETON(WAccel);
+SINGLETON(WCompas);
 }
 
 namespace input {
@@ -199,7 +176,7 @@ int acceleration(Dimension dimension) {
 //% help=input/rotation
 //% blockId=device_get_rotation block="rotation (°)|%NAME"
 //% parts="accelerometer"
-//% group="More" weight=38
+//% weight=38
 int rotation(Rotation kind) {
     switch (kind) {
     case Rotation::Pitch:
@@ -221,6 +198,38 @@ int rotation(Rotation kind) {
 //% group="More" weight=15 blockGap=8
 void setAccelerometerRange(AcceleratorRange range) {
     getWAccel()->acc.setRange((int)range);
+}
+
+/**
+ * Get the magnetic force value in ``micro-Teslas`` (``µT``). This function is not supported in the simulator.
+ * @param dimension TODO
+ */
+//% help=input/magnetic-force weight=51
+//% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
+//% parts="compass"
+int magneticForce(Dimension dimension) {
+    if (!getWCompas()->magnetometer.isCalibrated())
+    getWCompas()->magnetometer.calibrate();
+
+    switch (dimension) {
+        case Dimension::X: return getWCompas()->magnetometer.getX();
+        case Dimension::Y: return getWCompas()->magnetometer.getY();
+        case Dimension::Z: return getWCompas()->magnetometer.getZ();
+        case Dimension::Strength: return getWCompas()->magnetometer.getFieldStrength();
+    }
+    return 0;
+}
+
+
+/**
+ * Get the current compass heading in degrees.
+ */
+//% help=input/compass-heading
+//% weight=56
+//% blockId=device_heading block="compass heading (°)" blockGap=8
+//% parts="compass"
+int compassHeading() {
+    return getWCompas()->magnetometer.heading();
 }
 
 }
