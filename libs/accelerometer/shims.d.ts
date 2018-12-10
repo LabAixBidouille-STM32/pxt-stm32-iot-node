@@ -67,6 +67,15 @@ declare namespace input {
     //% blockId=device_heading block="compass heading (°)" blockGap=8
     //% parts="compass" shim=input::compassHeading
     function compassHeading(): int32;
+
+    /**
+     * Get the angular acceleration. This function is not supported in the simulator.
+     * @param dimension TODO
+     */
+    //% help=input/gyroscopic-force weight=51
+    //% blockId=device_get_gyroscopic_force block="angular acceleration|%NAME" blockGap=8
+    //% parts="gyroscope" shim=input::gyroscopicForce
+    function gyroscopicForce(dimension: Dimension): int32;
 }
 
 // Auto-generated. Do not edit. Really.

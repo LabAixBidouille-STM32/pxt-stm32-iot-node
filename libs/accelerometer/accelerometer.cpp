@@ -1,6 +1,7 @@
 #include "pxt.h"
 #include "target_accelerometer.h"
 #include "target_compass.h"
+#include "target_gyroscope.h"
 #include "axis.h"
 #include "Pin.h"
 #include "I2C.h"
@@ -109,6 +110,7 @@ namespace pxt {
 
 SINGLETON(WAccel);
 SINGLETON(WCompas);
+SINGLETON(WGyro);
 }
 
 namespace input {
@@ -230,6 +232,23 @@ int magneticForce(Dimension dimension) {
 //% parts="compass"
 int compassHeading() {
     return getWCompas()->magnetometer.heading();
+}
+
+/**
+ * Get the angular acceleration. This function is not supported in the simulator.
+ * @param dimension TODO
+ */
+//% help=input/gyroscopic-force weight=51
+//% blockId=device_get_gyroscopic_force block="angular acceleration|%NAME" blockGap=8
+//% parts="gyroscope"
+int gyroscopicForce(Dimension dimension) {
+    switch (dimension) {
+        case Dimension::X: return getWGyro()->gyroscope.getX();
+        case Dimension::Y: return getWGyro()->gyroscope.getY();
+        case Dimension::Z: return getWGyro()->gyroscope.getZ();
+        case Dimension::Strength: return 0; // getWGyro()->gyroscope.getStrength();
+    }
+    return 0;
 }
 
 }
