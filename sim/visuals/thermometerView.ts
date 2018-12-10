@@ -75,7 +75,7 @@ namespace pxsim.visuals {
             if (!this.thermometer) {
                 let gid = "gradient-thermometer";
                 this.thermometerGradient = svg.linearGradient(defs, gid);
-                let xBase = 0;
+                let xBase = 25;
                 let yBase = 3;
                 this.thermometer = <SVGRectElement>svg.child(g, "rect", {
                     class: "sim-thermometer no-drag",

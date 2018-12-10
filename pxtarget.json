@@ -16,6 +16,7 @@
         "libs/humidity",
         "libs/pressure",
         "libs/accelerometer",
+        "libs/distance",
         "libs/jacdac",
         "libs/jacdac-drivers",
         "libs/tests"

@@ -150,6 +150,8 @@ namespace pxsim.visuals {
         private onBoardThermometer: pxsim.visuals.ThermometerView;
         private onBoardHumidity: pxsim.visuals.HumidityView;
         private onBoardPressure: pxsim.visuals.PressureView;
+        private onBoardDistance: pxsim.visuals.DistanceView;
+        
 
         constructor(public props: MetroBoardProps) {
             super(props);
@@ -181,7 +183,7 @@ namespace pxsim.visuals {
             this.onBoardThermometer = new ThermometerView();
             this.onBoardHumidity = new HumidityView();
             this.onBoardPressure = new PressureView();
-
+            this.onBoardDistance = new DistanceView();
 
             if (props && props.theme)
                 this.updateTheme();
@@ -195,6 +197,7 @@ namespace pxsim.visuals {
             this.onBoardThermometer.init(this.board.bus, new ThermometerState(this.board.thermometerState, this.board.thermometerUnitState), el, null);
             this.onBoardHumidity.init(this.board.bus, new HumidityState(this.board.humidityState), el, null);
             this.onBoardPressure.init(this.board.bus, new PressureState(this.board.pressureState, this.board.pressureUnitState), el, null);
+            this.onBoardDistance.init(this.board.bus, new DistanceState(this.board.distanceState, this.board.distanceUnitState), el, null);
 
         }
 
@@ -213,10 +216,12 @@ namespace pxsim.visuals {
                     this.onBoardNeopixel.setColor(rgb as any);
                 }
             }
+
             this.onBoardButtonReset.updateState();
             this.onBoardThermometer.updateState();
             this.onBoardHumidity.updateState();
             this.onBoardPressure.updateState();
+            this.onBoardDistance.updateState();
         }
 
         private addDefs(el: SVGElement) {

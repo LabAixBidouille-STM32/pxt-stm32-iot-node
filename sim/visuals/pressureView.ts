@@ -74,8 +74,8 @@ namespace pxsim.visuals {
             if (!this.pressure) {
                 let gid = "gradient-pressure";
                 this.pressureGradient = svg.linearGradient(defs, gid);
-                let xBase = 250;
-                let yBase = 3;
+                let xBase = 450;
+                let yBase = 450;
                 this.pressure = <SVGRectElement>svg.child(g, "rect", {
                     class: "sim-pressure no-drag",
                     x: xBase,

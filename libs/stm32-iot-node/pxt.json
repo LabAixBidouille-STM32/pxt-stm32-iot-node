@@ -18,6 +18,7 @@
         "humidity" : "file:../humidity",
         "pressure" : "file:../pressure",
         "accelerometer" : "file:../accelerometer",
+        "distance" : "file:../distance",
         "lcd" : "file:../lcd"
     },
     "public": true

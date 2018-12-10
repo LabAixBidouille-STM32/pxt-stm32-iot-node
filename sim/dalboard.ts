@@ -22,6 +22,7 @@ namespace pxsim {
         TemperatureBoard,
         HumidityBoard,
         PressureBoard,
+        DistanceBoard,
         AccelerometerBoard,
         LCDBoard,
         PixelBoard,
@@ -47,6 +48,9 @@ namespace pxsim {
 
         pressureState: AnalogSensorState;
         pressureUnitState: PressureUnit;
+
+        distanceState: AnalogSensorState;
+        distanceUnitState: DistanceUnit;
 
         storageState: StorageState;
 
@@ -120,6 +124,9 @@ namespace pxsim {
             this.pressureState = new AnalogSensorState(DAL.DEVICE_ID_PRESSURE, 980, 1050, 1000, 1030);
             this.pressureUnitState = PressureUnit.HectoPascal;
 
+            this.distanceState = new AnalogSensorState(DAL.DEVICE_ID_DISTANCE, 0, 2000, 300, 1000);
+            this.distanceUnitState = DistanceUnit.Millimeter;
+
             this.lcdState = new LCDState();
 
             this.bus.setNotify(DAL.DEVICE_ID_NOTIFY, DAL.DEVICE_ID_NOTIFY_ONE);
@@ -169,7 +176,10 @@ namespace pxsim {
             this.builtinVisuals["humidity"] = () => new visuals.HumidityView();
 
             this.builtinParts["pressure"] =  new PressureState(this.pressureState, this.pressureUnitState);
-            this.builtinVisuals["pressure"] = () => new visuals.HumidityView();
+            this.builtinVisuals["pressure"] = () => new visuals.PressureView();
+
+            this.builtinParts["distance"] =  new DistanceState(this.distanceState, this.distanceUnitState);
+            this.builtinVisuals["distance"] = () => new visuals.DistanceView();
 
             this.builtinParts["lcd"] =  this.lcdState;
             this.builtinVisuals["lcd"] = () => new visuals.LCDView();
