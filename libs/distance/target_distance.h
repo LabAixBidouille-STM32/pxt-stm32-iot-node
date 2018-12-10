@@ -10,6 +10,7 @@ class WDistance {
     codal::STM32IotNodeDistance sensor;
     WDistance(): sensor()
     {
+      sensor.init();
     }
 };
 }
