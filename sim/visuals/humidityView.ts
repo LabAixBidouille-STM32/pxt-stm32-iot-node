@@ -76,12 +76,13 @@ namespace pxsim.visuals {
                 this.humidityGradient = svg.linearGradient(defs, gid);
                 let xBase = 450;
                 let yBase = 3;
+                let heightBase = 64;
                 this.humidity = <SVGRectElement>svg.child(g, "rect", {
                     class: "sim-humidity no-drag",
                     x: xBase,
                     y: yBase,
                     width: 10,
-                    height: 64,
+                    height: heightBase,
                     rx: 4, ry: 4,
                     fill: `url(#${gid})`
                 });
@@ -93,7 +94,7 @@ namespace pxsim.visuals {
                     // move
                     (ev) => {
                         let cur = svg.cursorPoint(pt, svgEl, ev);
-                        let t = Math.max(0, Math.min(1, (35 - cur.y) / 30))
+                        let t = Math.max(0, Math.min(1, ((heightBase + yBase) - cur.y) / (heightBase)));
                         this.state.humidityState.setLevel(Math.floor(HumidityView.tmin + t * (HumidityView.tmax - HumidityView.tmin)));
                         this.updateHumidity();
                     },

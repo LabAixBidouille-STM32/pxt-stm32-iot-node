@@ -42,6 +42,10 @@ namespace pxsim.visuals {
     stroke: #404040;
     fill: #FFA500;
 }
+
+.sim-distance,
+.sim-humidity,
+.sim-pressure,
 .sim-thermometer {
     stroke:#aaa;
     stroke-width: 1px;
@@ -61,6 +65,9 @@ namespace pxsim.visuals {
 .sim-slide-switch:focus,
 .sim-pin:focus,
 .sim-thermometer:focus,
+.sim-distance:focus,
+.sim-humidity:focus,
+.sim-pressure:focus,
 .sim-button-group:focus .sim-button-outer,
 .sim-light-level-button:focus,
 .sim-sound-level-button:focus {

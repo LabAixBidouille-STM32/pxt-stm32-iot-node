@@ -77,12 +77,13 @@ namespace pxsim.visuals {
                 this.thermometerGradient = svg.linearGradient(defs, gid);
                 let xBase = 25;
                 let yBase = 3;
+                let heightBase = 64;
                 this.thermometer = <SVGRectElement>svg.child(g, "rect", {
                     class: "sim-thermometer no-drag",
                     x: xBase,
                     y: yBase,
                     width: 10,
-                    height: 64,
+                    height: heightBase,
                     rx: 4, ry: 4,
                     fill: `url(#${gid})`
                 });
@@ -94,7 +95,7 @@ namespace pxsim.visuals {
                     // move
                     (ev) => {
                         let cur = svg.cursorPoint(pt, svgEl, ev);
-                        let t = Math.max(0, Math.min(1, (35 - cur.y) / 30))
+                        let t = Math.max(0, Math.min(1, ((heightBase + yBase) - cur.y) / (heightBase)));
                         this.state.thermometerState.setLevel(Math.floor(ThermometerView.tmin + t * (ThermometerView.tmax - ThermometerView.tmin)));
                         this.updateTemperature();
                     },
