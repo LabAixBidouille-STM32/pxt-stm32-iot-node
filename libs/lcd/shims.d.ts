@@ -66,8 +66,9 @@ declare namespace LCD {
      */
     //% blockId="LCD_BACKLIGHT_COLOR" 
     //% block="set backlight color %rgb=colorNumberPicker"
-    //% weight=87
+    //% weight=69
     //% blockGap=8
+    //% group="Backlight" 
     //% parts=LCD trackArgs=0 shim=LCD::SetBacklightColor
     function SetBacklightColor(rgb: uint32): void;
 
@@ -76,7 +77,7 @@ declare namespace LCD {
      */
     //% blockId="LCD_BACKLIGHT_ON" 
     //% block="turn on backlight"
-    //% group="More" 
+    //% group="Backlight"  
     //% weight=71 
     //% blockGap=8
     //% parts=LCD trackArgs=0 shim=LCD::BacklightOn
@@ -87,7 +88,7 @@ declare namespace LCD {
      */
     //% blockId="LCD_BACKLIGHT_OFF" 
     //% block="turn off backlight"
-    //% group="More" 
+    //% group="Backlight" 
     //% weight=70 
     //% blockGap=8
     //% parts=LCD trackArgs=0 shim=LCD::BacklightOff
