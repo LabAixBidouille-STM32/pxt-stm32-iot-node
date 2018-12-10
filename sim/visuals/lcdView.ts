@@ -52,7 +52,6 @@ namespace pxsim.visuals {
         setChar(column: number, line: number, value: string): void {
             let _case = this.image.getElementById("case"+line+""+column+"_text") as SVGTextElement;
             _case.innerHTML = value.charAt(0);
-           console.log("case" + line + "" + column + "_text modifiée avec la valeur " + value.charAt(0));
         }
 
         public moveToCoord(xy: Coord) {
