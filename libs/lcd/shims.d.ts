@@ -24,7 +24,7 @@ declare namespace LCD {
     //% weight=90 
     //% blockGap=8
     //% parts=LCD trackArgs=0 shim=LCD::ShowNumber
-    function ShowNumber(n: uint32): void;
+    function ShowNumber(n: int32): void;
 
     /**
      * show a string in LCD at given position
@@ -47,7 +47,7 @@ declare namespace LCD {
     //% weight=90 
     //% blockGap=8
     //% parts=LCD trackArgs=0 shim=LCD::ShowValue
-    function ShowValue(name: string, value: uint32): void;
+    function ShowValue(name: string, value: int32): void;
 
     /**
      * clear all display content
@@ -108,7 +108,7 @@ declare namespace LCD {
     //% x.min=0 x.max=15
     //% y.min=0 y.max=1
     //% parts=LCD trackArgs=0 shim=LCD::ShowNumberAtPos
-    function ShowNumberAtPos(n: uint32, x: uint8, y: uint8): void;
+    function ShowNumberAtPos(n: int32, x: uint8, y: uint8): void;
 
     /**
      * show a string in LCD at given position

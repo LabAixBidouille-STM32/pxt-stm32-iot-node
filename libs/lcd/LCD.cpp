@@ -45,7 +45,7 @@ namespace LCD {
     //% weight=90 
     //% blockGap=8
     //% parts=LCD trackArgs=0
-    void ShowNumber(uint32_t n){
+    void ShowNumber(int n){
         getWLCD()->lcd.print(n);
     }
 
@@ -72,7 +72,7 @@ namespace LCD {
     //% weight=90 
     //% blockGap=8
     //% parts=LCD trackArgs=0
-    void ShowValue(String name, uint32_t value) {
+    void ShowValue(String name, int value) {
         getWLCD()->lcd.print(name->data);
         getWLCD()->lcd.print(':');
         getWLCD()->lcd.print(value);
@@ -149,7 +149,7 @@ namespace LCD {
     //% x.min=0 x.max=15
     //% y.min=0 y.max=1
     //% parts=LCD trackArgs=0
-    void ShowNumberAtPos(uint32_t n ,uint8_t x ,uint8_t y){
+    void ShowNumberAtPos(int n ,uint8_t x ,uint8_t y){
         getWLCD()->lcd.setCursor(x, y);
         ShowNumber(n);
     }
