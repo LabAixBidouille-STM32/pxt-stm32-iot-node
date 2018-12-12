@@ -77,6 +77,14 @@ namespace pxsim.visuals {
                 let xBase = 450;
                 let yBase = 450;
                 let heightBase = 64;
+                svg.child(g, "rect", {
+                    fill: "transparent",
+                    x: xBase -5,
+                    y: yBase-20,
+                    width: 20,
+                    height: heightBase+40,
+                });
+
                 this.pressure = <SVGRectElement>svg.child(g, "rect", {
                     class: "sim-pressure no-drag",
                     x: xBase,
@@ -90,7 +98,7 @@ namespace pxsim.visuals {
                 this.updateTheme();
 
                 let pt = svgEl.createSVGPoint();
-                svg.buttonEvents(this.pressure,
+                svg.buttonEvents(g,
                     // move
                     (ev) => {
                         let cur = svg.cursorPoint(pt, svgEl, ev);

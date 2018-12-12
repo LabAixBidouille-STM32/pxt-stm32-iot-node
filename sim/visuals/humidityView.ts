@@ -75,8 +75,16 @@ namespace pxsim.visuals {
                 let gid = "gradient-humidity";
                 this.humidityGradient = svg.linearGradient(defs, gid);
                 let xBase = 450;
-                let yBase = 3;
+                let yBase = 15;
                 let heightBase = 64;
+                svg.child(g, "rect", {
+                    fill: "transparent",
+                    x: xBase -5,
+                    y: yBase-20,
+                    width: 20,
+                    height: heightBase+40,
+                });
+
                 this.humidity = <SVGRectElement>svg.child(g, "rect", {
                     class: "sim-humidity no-drag",
                     x: xBase,
@@ -90,7 +98,7 @@ namespace pxsim.visuals {
                 this.updateTheme();
 
                 let pt = svgEl.createSVGPoint();
-                svg.buttonEvents(this.humidity,
+                svg.buttonEvents(g,
                     // move
                     (ev) => {
                         let cur = svg.cursorPoint(pt, svgEl, ev);
