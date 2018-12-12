@@ -20,6 +20,24 @@ declare namespace jacdac {
     function isRunning(): boolean;
 
     /**
+     * true if connected, false if there's a bad bus condition.
+     */
+    //% parts=jacdac shim=jacdac::isConnected
+    function isConnected(): boolean;
+
+    /**
+     * Gets the jacdac event id
+     */
+    //% parts=jacdac shim=jacdac::eventId
+    function eventId(): int32;
+
+    /**
+     * Gets the jacdac logic driver event id
+     */
+    //% parts=jacdac shim=jacdac::logicEventId
+    function logicEventId(): int32;
+
+    /**
      * Clears any existing bridge
      */
     //% parts=jacdac shim=jacdac::clearBridge
@@ -55,6 +73,12 @@ declare interface JacDacDriverStatus {
     /** Check if driver is connected. */
     //% property shim=JacDacDriverStatusMethods::isConnected
     isConnected: boolean;
+
+    /**
+     * Sets the error state on the device
+     */
+    //% shim=JacDacDriverStatusMethods::setError
+    setError(error: int32): void;
 
     /** Get device id for events. */
     //% property shim=JacDacDriverStatusMethods::id

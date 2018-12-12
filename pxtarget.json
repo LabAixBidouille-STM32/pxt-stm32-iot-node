@@ -60,6 +60,7 @@
         "useUF2": false,
         "webUSB": false,
         "hasHex": true,
+        "gc": true,
         "deployDrives": "DIS_L4IOT",
         "deployFileMarker": "MBED.HTM",
         "driveName": "DIS_L4IOT",
@@ -91,12 +92,12 @@
         "codalTarget": {
             "name": "codal-stm32-iot-node",
             "url": "https://github.com/LabAixBidouille-STM32/codal-stm32-iot-node",
-            "branch": "v0.11.4",
+            "branch": "v0.11.5",
             "type": "git"
         },
         "codalBinary": "STM32_IOT_NODE",
         "githubCorePackage": "lancaster-university/codal",
-        "gittag": "v0.5.0",
+        "gittag": "v0.6.1",
         "serviceId": "codal2stm32iot"
     },
     "appTheme": {
