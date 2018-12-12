@@ -23,6 +23,7 @@ namespace pxsim {
         HumidityBoard,
         PressureBoard,
         DistanceBoard,
+        CompassBoard,
         AccelerometerBoard,
         LCDBoard,
         PixelBoard,
@@ -40,7 +41,7 @@ namespace pxsim {
         touchButtonState: TouchButtonState;
         
         accelerometerState: AccelerometerState;
-        
+        compassState: CompassState;
         thermometerState: AnalogSensorState;
         thermometerUnitState: TemperatureUnit;
 
@@ -152,7 +153,8 @@ namespace pxsim {
             });
 
             this.builtinParts["accelerometer"] = this.accelerometerState = new AccelerometerState(runtime);
-
+            this.builtinParts["compass"] = this.compassState = new CompassState();
+            
             this.builtinParts["microservo"] = this.edgeConnectorState;
             this.builtinVisuals["microservo"] = () => new visuals.MicroServoView();
             this.builtinPartVisuals["microservo"] = (xy: visuals.Coord) => visuals.mkMicroServoPart(xy);
@@ -231,10 +233,12 @@ namespace pxsim {
                 fnArgs: fnArgs,
                 maxWidth: "100%",
                 maxHeight: "100%",
+                highContrast: msg.highContrast
             };
             const viewHost = new visuals.BoardHost(pxsim.visuals.mkBoardView({
                 visual: boardDef.visual,
-                boardDef
+                boardDef: boardDef,
+                highContrast : msg.highContrast
             }), opts);
 
             document.body.innerHTML = ""; // clear children

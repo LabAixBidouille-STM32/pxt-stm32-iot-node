@@ -61,6 +61,11 @@ namespace pxsim.visuals {
 *:focus {
     outline: none;
 }
+
+.sim-head {
+    fill: #FFFFFF;
+}
+
 .sim-button-outer:focus,
 .sim-slide-switch:focus,
 .sim-pin:focus,
@@ -162,6 +167,7 @@ namespace pxsim.visuals {
         private onBoardHumidity: pxsim.visuals.HumidityView;
         private onBoardPressure: pxsim.visuals.PressureView;
         private onBoardDistance: pxsim.visuals.DistanceView;
+        private onBoardCompass: pxsim.visuals.CompassView;
         
 
         constructor(public props: MetroBoardProps) {
@@ -195,6 +201,7 @@ namespace pxsim.visuals {
             this.onBoardHumidity = new HumidityView();
             this.onBoardPressure = new PressureView();
             this.onBoardDistance = new DistanceView();
+            this.onBoardCompass = new CompassView();
 
             if (props && props.theme)
                 this.updateTheme();
@@ -209,6 +216,7 @@ namespace pxsim.visuals {
             this.onBoardHumidity.init(this.board.bus, new HumidityState(this.board.humidityState), el, null);
             this.onBoardPressure.init(this.board.bus, new PressureState(this.board.pressureState, this.board.pressureUnitState), el, null);
             this.onBoardDistance.init(this.board.bus, new DistanceState(this.board.distanceState, this.board.distanceUnitState), el, null);
+            this.onBoardCompass.init(this.board.bus, this.board.compassState, el, null);
 
         }
 
@@ -236,6 +244,7 @@ namespace pxsim.visuals {
             this.onBoardHumidity.updateState();
             this.onBoardPressure.updateState();
             this.onBoardDistance.updateState();
+            this.onBoardCompass.updateState();
             this.updateGestures();
         }
 
